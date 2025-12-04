@@ -1,0 +1,3412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Script do MathJax no <head> -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    
+    <title>Nivelamento - Física Nivel 1 - Unidade 4</title>
+
+    <style>
+        /* Global styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .titulo-programa {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 50px;
+            color: #003974;
+            font-weight: lighter;
+        }
+
+        .titulo-materia {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 133px;
+            color: #003974;
+            font-weight: lighter;
+        }
+
+        .subtitulo-professor {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 59px;
+            color: #0058B4;
+            font-weight: lighter;
+        }
+
+        .titulo-unidade {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 60px;
+        }
+
+        .titulo-saiba-mais {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 70px;
+        }
+        /* Estilização de Bebas Neue FIM */
+
+
+        /* Estilização de Roboto INICIO */
+        .peso-1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 45px;
+        }
+
+        .texto {
+            font-family: 'Roboto', sans-serif;
+            font-size: 35px;
+        }
+
+        .sub-texto {
+            font-family: 'Roboto', sans-serif;
+            font-size: 25px;
+        }
+
+        .titulo-box {
+            font-family: 'Roboto', sans-serif;
+            font-size: 32px;
+        }
+
+        .fonte {
+            font-family: 'Roboto', sans-serif;
+            font-size: 25px;
+        }
+
+        .citacao {
+            font-family: 'Roboto', sans-serif;
+            font-size: 30px;
+            font-style: italic;
+        }
+        /* Estilização de Roboto FIM */
+
+        /* Navbar styles INICIO */
+        .navbar {
+            background-color: #9F43BE;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            position: -webkit-sticky; /* Para navegadores antigos */
+            position: sticky; /* Para manter no topo durante o scroll */
+            top: 0; /* Faz com que a navbar fique no topo */
+            z-index: 10; /* Garante que o menu fique acima de outros elementos */
+            transition: background-color 0.3s ease; /* Transição suave para o efeito */
+        }
+
+        .navbar .logo img {
+            height: 50px;/* Ajuste conforme necessário */
+            width: auto;
+        }
+
+        .navbar .menu-toggle {
+            cursor: pointer;
+            font-size: 1.5em;
+            display: block;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: none;
+            flex-direction: column;
+            background-color: #9f43be;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            width: 200px;
+            height: auto;
+            border-radius: 5px;
+            z-index: 10; /* Garante que o menu esteja acima de outros elementos */
+        }
+
+        .navbar ul.show {
+            display: flex;
+        }
+
+        .navbar ul li {
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .navbar ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .navbar ul li a:hover {
+            color: #003974; /* Cor ao passar o mouse */
+        }
+        .navbar .menu-toggle i:last-child {
+            display: none; /* Esconde o ícone de fechar inicialmente */
+        }
+        
+
+         /* Navbar styles FIM */
+
+        /* Titulo styles INICIO */
+        .titulo-intro {
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .titulo-intro h1 {
+            margin: 0;
+            padding: 15px;
+        }
+        /* Titulo styles FIM */
+
+        /* Estilo da Capa do Livro INICIO*/
+        .capa-livro {
+            position: relative;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden; /* Para evitar que o pseudoelemento saia do container */
+            border-top: 3px solid #003974;
+            border-bottom: 3px solid #003974;
+        }
+
+        .capa-livro::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://res.cloudinary.com/di4ria1pf/image/upload/v1759773391/244287440_l_w7bprt.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.40; /* Controle da opacidade */
+            z-index: -1; /* Coloca o background atrás do conteúdo */
+        }
+
+        
+
+        .capa-livro .conteudo-capa {
+            text-align: center;
+            color: white;
+            padding: 20px; /* Espaço interno para o texto */
+        }
+
+        .capa-livro .titulo-materia {
+            font-size: 80px;
+            font-family: 'Bebas Neue', cursive;
+            margin: 0;
+        }
+
+        .capa-livro .subtitulo-professor {
+            font-size: 40px;
+            font-family: 'Bebas Neue', cursive;
+            margin: 10px 0 0;
+        }
+        /* Estilo da Capa do Livro FIM*/
+
+        /* Barra Superior */
+        .barra-superior {
+            background-color: #015A42; /* Cor verde escuro */
+            width: 100%;
+            padding: 15px 15px;
+            text-align: center;
+            box-sizing: border-box; /* Inclui padding e bordas no cálculo da largura */
+            overflow-x: hidden; /* Previne rolagem horizontal */
+        }
+
+        .barra-superior .titulo-barra {
+            font-family: 'Bebas Neue', cursive;
+            color: #FFF; /* Cor branca */
+            font-size: 50px;
+            font-weight: lighter;
+            margin: 0;
+        }
+
+        /* Conteúdo da Introdução */
+        .introducao {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+            overflow-x: hidden; /* Impede rolagem horizontal */
+        }
+        
+        .introducao .titulo-introducao {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 50px;
+            font-weight: lighter;
+            color: #015A42; /* Cor verde */
+            margin: 10px auto 10px auto;
+        }
+
+        .introducao .caixa-texto {
+            width: 100%;
+            background-color: #E2F4EB; /* Verde mais claro */
+            padding: 64px 0;
+        }
+                /* Conteúdo centralizado dentro da faixa */
+        .introducao .conteudo-centralizado {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Parágrafos da introdução */
+        .introducao .conteudo-centralizado p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 19px;
+            line-height: 1.6;
+            text-align: justify;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        /* RESPONSIVIDADE SEÇÕES ACIMA*/
+        /* Capa do Livro - Responsividade */
+        @media (max-width: 768px) {
+            .capa-livro {
+                height: 70vh; /* Reduz a altura da capa */
+            }
+            .capa-livro::before {
+                background-position: center center; /* centraliza melhor no mobile */
+            }
+            .capa-livro .titulo-materia {
+                font-size: 40px; /* Reduz o tamanho do título */
+            }
+
+            .capa-livro .subtitulo-professor {
+                font-size: 24px; /* Reduz o tamanho do subtítulo */
+            }
+            .capa-livro .titulo-programa {
+                font-size: 18px;
+            }
+            .capa-livro .conteudo-capa {
+                padding: 15px; /* Ajusta o padding para telas menores */
+            }
+        }   
+            /* Seção Introdução - Responsividade */
+        @media (max-width: 768px) {
+            .barra-superior {
+                padding: 10px; /* Reduz o padding da barra */
+            }
+
+            .barra-superior .titulo-barra {
+                font-size: 1.6rem;
+                max-width: 800px;
+                margin: 10px 0;
+                padding: 0 30px;
+                text-align: left;
+            }
+
+            .introducao .titulo-introducao {
+                font-size: 2.8rem; /* Reduz o tamanho do título da introdução */
+                margin-top: 20px; /* Ajusta o espaçamento superior */
+            }
+
+            .introducao .caixa-texto {
+                padding: 20px; /* Reduz o padding da caixa de texto */
+                width: 100%; /* Ajusta a largura da caixa */
+            }
+
+            .introducao .caixa-texto p {
+                font-size: 1rem; /* Reduz o tamanho do texto */
+                line-height: 1.4;
+                margin-bottom: 10px; /* Ajusta a margem entre os parágrafos */
+            }
+            .introducao .conteudo-centralizado {
+                max-width: 800px;
+                margin: 10px 0;
+                padding: 0 40px;
+            }
+        }
+        /* Responsividade para o título da seção de Programa */
+        @media (max-width: 768px) {
+            .titulo-programa {
+                font-size: 50px; /* Ajuste do tamanho do título */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .titulo-programa {
+                font-size: 35px; /* Ajuste para telas muito pequenas */
+            }
+        }
+
+        /* Estilo base da seção */
+        .secao1 .conteudo-secao {
+            width: 100% !important;
+            padding: 64px 0 !important; /* padding vertical conforme solicitado */
+            box-sizing: border-box !important;
+        }
+        .secao1 .acordeon-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        .secao1 .tabs-section {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        /* Estilo base da seção */
+        .secao1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #9f43be11;
+            padding: 20px;
+        }
+        .secao1 .outer-container-alt {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+       }
+        /* Imagem de topo */
+        .secao1 .imagem-topo {
+            width: 100%;
+            height: auto;
+            max-height: 290px; /* ajuste essa altura conforme necessário */
+            object-fit: cover; /* garante que a imagem preencha sem distorcer */
+            display: block;
+            margin: 0;
+            padding: 0;
+            background-color: #FFF;
+        }
+
+        /* Faixa verde */
+        .secao1 .faixa-verde {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: left;
+        }
+
+        .secao1 .faixa-verde .titulo-secao {
+            font-size: 25px;
+            font-family: 'Roboto', sans-serif;
+            color: #015A42; /* Cor verde */
+            width: 90%;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
+        }
+        .secao1 .titulo-verde {
+            font-size: 20px;
+            font-family: 'Roboto', sans-serif;
+            color: #015A42; /* Cor verde */
+            width: 90%;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
+        }
+        /* Parágrafo padrão */
+        .secao1 p {
+            font-size: 19px;
+            text-align: justify;
+            line-height: 1.6;
+            color: #333;
+            margin: 10px auto;
+            width: 90%;
+            max-width: 800px;    
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .secao1 .faixa-verde .titulo-secao {
+                font-size: 20px;
+            }
+
+            .secao1 p {
+                font-size: 1rem;
+            }
+            .secao1 .imagem-topo {
+                max-height: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .secao1 .faixa-verde .titulo-secao {
+                font-size: 20px;
+            }
+
+            .secao1 p {
+                font-size: 0.95rem;
+            }
+        }
+        /* Estilo base da seção */
+        .secao2 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+        }
+        .secao2 .conteudo-secao {
+            width: 100%;
+            padding: 64px 0;
+            box-sizing: border-box;
+        }
+        .secao2 .acordeon-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 10px auto;
+        }
+       .secao2 .outer-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+       }
+        /* Imagem de topo */
+        .secao2 .imagem-topo {
+            width: 100%;
+            height: auto;
+            max-height: 290px; /* ajuste essa altura conforme necessário */
+            object-fit: cover; /* garante que a imagem preencha sem distorcer */
+            display: block;
+            margin: 0;
+            padding: 0;
+            background-color: #FFF;
+        }
+
+        /* Faixa verde */
+        .secao2 .faixa-verde {
+            width: 100%;
+            background-color: #fff;
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: left;
+        }
+
+        .secao2 .faixa-verde .titulo-secao {
+            font-size: 25px;
+            font-family: 'Roboto', sans-serif;
+            color: #015A42; /* Cor verde */
+            width: 90%;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
+        }
+        .secao2 .titulo-verde {
+            font-size: 20px;
+            font-family: 'Roboto', sans-serif;
+            color: #3a95a6; /* Cor verde */
+            width: 90%;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
+        }
+        /* Parágrafo padrão */
+        .secao2 p {
+            font-size: 19px;
+            font-family: 'Roboto', sans-serif;
+            text-align: justify;
+            line-height: 1.6;
+            color: #333;
+            margin: 10px auto;
+            width: 90%;
+            max-width: 800px;
+                 
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .secao2 .faixa-verde .titulo-secao {
+                font-size: 30px;
+            }
+
+            .secao2 p {
+                font-size: 1rem;
+            }
+            .secao2 .imagem-topo {
+                max-height: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .secao2 .faixa-verde .titulo-secao {
+                font-size: 24px;
+            }
+
+            .secao2 p {
+                font-size: 0.95rem;
+            }
+        }
+        .tabs-container {
+            width: 600px;
+        }
+
+        /* Abas */
+        .tab-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px auto;
+        }
+
+        .tab-button {
+            flex: 1;
+            background-color: #9F43BE;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .tab-button:not(:last-child) {
+            border-right: 2px solid white;
+        }
+
+        .tab-button:hover {
+            background-color: #b95cd5;
+        }
+
+        .tab-button.active {
+            background-color: white;
+            color: #9F43BE;
+            border: 2px solid #9F43BE;
+            font-weight: 700;
+        }
+
+        /* Conteúdo */
+        .tab-content {
+            border: 2px solid #9F43BE;
+            border-radius: 10px;
+            background-color: white;
+            padding: 40px;
+            display: none;
+            font-size: 1rem !important;
+            line-height: 1.5;
+            color: #333;
+            text-align: center;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+                /* ===== TAMANHO DAS FÓRMULAS NAS TABS ===== */
+        .tabs-container .tab-content {
+            font-size: 1.2em; /* aumenta tudo dentro da aba */
+            line-height: 1.5em;
+        }
+
+        /* opcional: deixar só as fórmulas maiores ainda */
+        .tabs-container .tab-content mjx-math {
+            font-size: 1.1em !important;
+        }
+        /* ===========================
+        🔹 Responsividade adicionada
+        =========================== */
+
+        /* Tablets */
+        @media (max-width: 768px) {
+            .tabs-container {
+                width: 100%;
+                max-width: 500px;
+            }
+
+            .tab-buttons {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .tab-button {
+                flex: 1 1 45%;
+                font-size: 14px;
+                padding: 8px 4px;
+                border-radius: 8px;
+            }
+
+            .tab-content {
+                padding: 25px;
+                font-size: 15px;
+            }
+        }
+
+        /* Celulares */
+        @media (max-width: 480px) {
+            .tabs-container {
+                width: 100%;
+                max-width: 400px;
+            }
+
+            .tab-buttons {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 8px;
+            }
+
+            .tab-button {
+                flex: none;
+                width: 100%;
+                font-size: 14px;
+                padding: 10px;
+                border-radius: 8px;
+                border-right: none;
+            }
+
+            .tab-content {
+                padding: 20px;
+                font-size: 14px;
+            }
+        }
+                /* Tema verde exclusivo para esses tabs */
+        .tabs-container.tema-verde {
+            --tab-color-default: #015A42;
+            --tab-color-active: #01332d;
+            --tab-color-hover: #017155;
+            --tab-text-color: #ffffff;
+            --tab-border-color: #015A42;
+        }
+
+        /* Aplica as variáveis apenas dentro do tema */
+        .tabs-container.tema-verde .tab-button {
+            background-color: var(--tab-color-default);
+            color: var(--tab-text-color);
+        }
+
+        .tabs-container.tema-verde .tab-button:hover {
+            background-color: var(--tab-color-hover);
+        }
+
+        .tabs-container.tema-verde .tab-button.active {
+            background-color: white;
+            color: var(--tab-color-default);
+            border-bottom: none;
+                border: 2px solid;
+        }
+
+        .tabs-container.tema-verde .tab-content {
+            border: 2px solid var(--tab-border-color);
+        }
+
+        /* ===== BLOCO REGRA DE SINAIS ===== */
+        .bloco-regra {
+            display: block;
+            text-align: center;
+            line-height: 1.8em;
+            font-size: 1rem;
+            padding: 15px 25px;
+            border: 2px solid #015A42;
+            border-radius: 10px;
+            background-color: #FFF;
+            max-width: 700px; /* limite fixo confortável */
+            width: 90%; /* responsivo */
+            margin: 20px auto;
+            word-wrap: break-word;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+            color: #000;
+        }
+
+        /* Centraliza o bloco dentro do parágrafo */
+        .bloco-regra p{
+            display: block;
+            font-size: 1rem;
+            text-align: left;
+        }
+        .texto-justificado {
+            text-align: justify;
+            display: block;
+            line-height: 1.8em;
+        }
+
+        @media (max-width: 480px) {
+            .texto-justificado {
+                font-size: 0.85rem;
+                line-height: 1.6em;
+            }
+        }
+
+        /* ===== Responsividade ===== */
+        @media (max-width: 768px) {
+            .bloco-regra {
+                font-size: 0.90rem !important;
+                line-height: 1.7em;
+                padding: 12px 18px;
+                max-width: 85% !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .bloco-regra {
+                font-size: 0.85rem !important;
+                padding: 10px 15px;
+                border-width: 1.5px;
+                max-width: 95% !important;
+            }
+        }
+       /* ===== Fórmulas dentro do bloco ===== */
+        .formula-responsiva {
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        /* Espaço horizontal entre expressões no desktop */
+        .formula-gap {
+            display: inline-block;
+            width: 2.5em; /* equivale a mais ou menos um \quad */
+        }
+
+        /* No mobile: quebra de linha + remove o espaço lateral */
+        @media (max-width: 768px) {
+            .formula-responsiva {
+                white-space: normal !important;
+                font-size: 0.9rem !important;
+                line-height: 1.6em;
+            }
+
+            .formula-gap {
+                display: block;
+                width: auto;
+                height: 0.8em; /* pequeno espaçamento vertical entre linhas */
+            }
+        }
+        @media (max-width: 600px) {
+            .bloco-coordenadas {
+                font-size: 0.8rem !important;
+            }
+        }
+        
+            .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+            cursor: grab;
+            overflow: hidden;
+        }
+
+        .lightbox img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* garante que se ajuste à tela inicialmente */
+            transition: transform 0.2s ease;
+            transform-origin: center center;
+        }
+        .lightbox-hint {
+            position: absolute;
+            bottom: 20px;
+            color: #fff;
+            font-size: 14px;
+            opacity: 0.8;
+            font-family: sans-serif;
+            text-align: center;
+            animation: fadeOut 4s forwards; /* some sozinho */
+        }
+        .zoomable {
+            cursor: zoom-in; /* ícone de lupa ao passar o mouse */
+            transition: transform 0.2s ease;
+        }
+
+        .zoomable:hover {
+            transform: scale(1.02); /* leve efeito de destaque no hover */
+        }
+        @keyframes fadeOut {
+            0% { opacity: 0.8; }
+            80% { opacity: 0.8; }
+            100% { opacity: 0; }
+        }
+                /* Animação suave */
+                @keyframes zoomIn {
+                    from { transform: scale(0.7); opacity: 0; }
+                    to { transform: scale(1); opacity: 1; }
+                }
+
+
+        .play-icon {
+            display: flex; /* Flexbox para centralizar o conteúdo */
+            justify-content: center;
+            align-items: center;
+            background-color: #015A42; /* Fundo verde */
+            color: #FFF; /* Ícone branco */
+            width: 90px; /* Largura do botão */
+            height: 55px; /* Altura do botão */
+            border-radius: 13px;
+            font-size: 40px; /* Tamanho do ícone */
+            cursor: pointer; /* Cursor de clique */
+            transition: transform 0.3s ease; /* Efeito de transição */
+        }
+
+        .play-icon:hover {
+            transform: scale(1.1); /* Aumenta levemente no hover */
+        }
+                /* Responsividade - Ajuste para telas menores */
+        @media (max-width: 768px) {
+            .play-icon {
+                width: 60px; /* Diminui a largura */
+                height: 40px; /* Diminui a altura */
+                font-size: 25px; /* Diminui o tamanho do ícone */
+            }
+        }
+        /* Modal - Oculto por padrão */
+        .video-modal {
+            display: none; /* Inicialmente o modal está oculto */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro transparente */
+            z-index: 1000; /* Garantir que o modal fique acima de outros conteúdos */
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Conteúdo do modal (onde ficará o vídeo) */
+        .video-content {
+            position: relative;
+            background-color: #015A42;
+            border-radius: 10px;
+            padding: 20px;
+        }
+         
+        /* Responsividade - Ajustes para dispositivos móveis */
+        @media (max-width: 768px) {
+            .video-content {
+                max-width: 100%; /* Maximize a largura do modal no mobile */
+                padding: 10px;
+            }
+
+            .video-content iframe {
+                width: 100%; /* O iframe ocupará toda a largura disponível */
+                height: 56.25vw; /* Isso mantém a proporção de 16:9 */
+                max-height: 80vh; /* Evita que o vídeo ultrapasse a tela */
+                border-radius: 10px;
+            }
+        }
+
+        /* Botão de fechar */
+        .close-btn {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            font-size: 40px;
+            color: #FFF;
+            cursor: pointer;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+        .close-btn:hover {
+            transform: scale(1.2); /* Aumenta levemente no hover */
+            color: #FF0000; /* Muda a cor para vermelho no hover */
+        }
+                /* Container */
+        .video-play-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 30px 0;
+        }
+
+        /* Botão circular */
+        .video-play-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(145deg, #017A5A, #015A42); /* Gradiente verde */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            color: #FFF;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            font-size: 55px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        /* Efeito pulsante */
+        .video-play-btn::after {
+            content: "";
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 2px solid rgba(1,90,66,0.6);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.6; }
+            70% { transform: scale(1.3); opacity: 0; }
+            100% { transform: scale(1); opacity: 0; }
+        }
+
+        .video-play-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        }
+
+        /* Texto abaixo */
+        .video-play-text {
+            margin-top: 10px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            color: #015A42;
+            font-weight: 600;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .video-play-btn {
+                width: 70px;
+                height: 70px;
+                font-size: 35px;
+            }
+
+            .video-play-btn::after {
+                width: 85px;
+                height: 85px;
+            }
+
+            .video-play-text {
+                font-size: 14px;
+            }
+        }
+
+        .lista-compacta {
+            list-style: none; 
+            margin: 0;
+            padding: 0;
+            padding-left: 20px; /* aumenta o recuo do bloco */
+            text-align: left;
+        }
+
+        .lista-compacta li {
+            position: relative;
+            padding-left: 20px;      /* controla a distância precisa do bullet */
+            margin: 20px 0;           /* espaçamento vertical confortável */
+            line-height: 1.6;        /* altura da linha */
+        }
+
+        .lista-compacta li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 16px;         /* tamanho do bullet */
+            line-height: 1.4;
+        }
+        /* TESTES */
+
+        .quadro-problema {
+            max-width: 800px;
+            width: 95%; /* adapta o quadro à tela menor */
+            margin: 20px auto;
+            border: 2px solid #015A42;
+            border-radius: 10px;
+            overflow: hidden;
+            font-family: 'Roboto', sans-serif;
+            box-sizing: border-box;
+        }
+
+        .quadro-problema .topo {
+            background-color: #ffffff;
+            padding: 10px;
+            
+        }
+
+        .quadro-problema .resolucao {
+            background-color: #E2F4EB;
+            padding: 10px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .quadro-problema h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .quadro-problema p {
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .quadro-problema code {
+            background-color: #d9f0e1;
+            padding: 2px 4px;
+            border-radius: 20px;
+            font-family: monospace;
+        }
+        /* Estilos para cálculos matemáticos extensos */
+        .math-equation-container {
+            width: 100%;
+            overflow-x: auto;
+            padding: 10px 0;
+            margin: 10px 0;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .math-equation-container mjx-container {
+            min-width: fit-content;
+        }
+
+        /* Scroll personalizado para equações */
+        .math-equation-container::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .math-equation-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 3px;
+        }
+
+        .math-equation-container::-webkit-scrollbar-thumb {
+            background: #9F43BE;
+            border-radius: 3px;
+        }
+
+        .math-equation-container::-webkit-scrollbar-thumb:hover {
+            background: #8a32a9;
+        }
+
+        /* Ajustes responsivos */
+        @media (max-width: 768px) {
+            .math-equation-container {
+                padding: 8px 0;
+                margin: 8px 0;
+            }
+            
+            .resolucao p {
+                font-size: 0.95rem;
+                line-height: 1.4;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .math-equation-container {
+                padding: 6px 0;
+                margin: 6px 0;
+            }
+            
+            .resolucao p {
+                font-size: 0.9rem;
+            }
+        }
+        .figura-container-reduzida {
+            text-align: center; /* centraliza a imagem */
+            margin: 15px 0; /* espaço acima e abaixo da imagem */
+        }
+
+        .figura-container-reduzida img {
+            max-width: 80%; /* imagem ocupa a largura total no mobile */
+            height: auto; /* mantém proporção */
+            border-radius: 4px; /* opcional, suaviza bordas */
+        }
+        
+        /* ===== RESPONSIVIDADE ===== */
+        @media (max-width: 768px) {
+            .quadro-problema {
+                width: 90%;
+                font-size: 15px;
+            }
+
+            .quadro-problema p {
+                font-size: 15px;
+                line-height: 1.5;
+            }
+
+            .figura-container-reduzida img {
+                max-width: 100%; /* imagem se ajusta completamente */
+            }
+
+            .quadro-problema .resolucao {
+                padding: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .quadro-problema {
+                width: 95%;
+                border-width: 1.5px;
+            }
+
+            .quadro-problema p {
+                font-size: 14px;
+            }
+
+            .figura-container-reduzida img {
+                max-width: 100%;
+            }
+        }
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            max-width: 600px;
+        }
+
+        .flip-card {
+            background-color: transparent;
+            width: 100%;
+            min-height: 180px; /* mantém proporção mínima */
+            perspective: 1000px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: auto;
+            min-height: 180px;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Frente */
+        .flip-card-front {
+            background-color: #9F43BE;
+            color: white;
+            font-weight: bold;
+            border: 2px solid #9F43BE;
+        }
+
+        /* Verso */
+        .flip-card-back {
+            background-color: white;
+            color: #9F43BE;
+            border: 2px solid #9F43BE;
+            transform: rotateY(180deg);
+            font-weight: 500;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        .flip-card-front, .flip-card-back {
+            height: auto;
+            min-height: 180px;
+        }
+        /* Responsividade aprimorada */
+        @media (max-width: 768px) {
+            .cards-container {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            max-width: 500px;
+            }
+
+            .flip-card {
+            aspect-ratio: 1 / 1.2;
+            }
+
+            .flip-card-front,
+            .flip-card-back {
+            font-size: 0.9rem;
+            padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cards-container {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            }
+
+            .flip-card {
+            aspect-ratio: 1 / 1.3;
+            }
+
+            .flip-card-front,
+            .flip-card-back {
+            font-size: 0.85rem;
+            padding: 8px;
+            }
+        }
+
+        /* === Temas reutilizáveis para os flip-cards === */
+
+            /* Tema Verde */
+            .tema-verde .flip-card-front {
+                background-color: #015A42;
+                border-color: #015A42;
+                color: #FFFFFF;
+            }
+
+            .tema-verde .flip-card-back {
+                background-color: #FFFFFF;
+                border-color: #015A42;
+                color: #015A42;
+            }
+            /* --- Centraliza o 3º card apenas quando houver exatamente 3 cards --- */
+        /* Seleciona o 3º card e garante que ele seja o último (ou seja, existem exatamente 3) */
+        .cards-container > .flip-card:nth-child(3):last-child {
+            grid-column: 1 / -1;   /* ocupa as duas colunas do grid */
+            justify-self: center;  /* centraliza dentro da área que ocupa */
+            max-width: 280px;      /* controla largura para não esticar — ajuste se quiser */
+            width: 100%;           /* mantém o comportamento responsivo */
+        }
+
+        /* Ajuste do gap quando o 3º card ocupa toda a linha (opcional) */
+        .cards-container > .flip-card:nth-child(3):last-child + .flip-card {
+            /* regra só por segurança — não deve haver elementos depois, pois é o last-child */
+        }
+
+        /* Responsividade: mantemos o mesmo comportamento em telas menores */
+        @media (max-width: 768px) {
+            .cards-container > .flip-card:nth-child(3):last-child {
+                max-width: 45%; /* menor para telas menores — ajuste conforme necessário */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cards-container > .flip-card:nth-child(3):last-child {
+                max-width: 90%; /* em telas muito estreitas deixa ficar quase full-width */
+            }
+        }
+                /* === Tamanho fixo apenas para os flip-cards de PLASTOS e VACÚOLOS === */
+        .cards-container.dupla-fixa {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            justify-content: center;
+            align-items: start;
+        }
+
+        .cards-container.dupla-fixa .flip-card {
+            width: 320px;   /* largura fixa igual */
+            height: 380px;  /* altura fixa igual */
+            margin: 0 auto;
+        }
+
+        .cards-container.dupla-fixa .flip-card-inner {
+            width: 100%;
+            height: 100%;
+        }
+
+        .cards-container.dupla-fixa .flip-card-front,
+        .cards-container.dupla-fixa .flip-card-back {
+            height: 100%;
+            overflow-y: auto; /* evita vazamento vertical */
+            padding: 18px;
+            box-sizing: border-box;
+        }
+        /* === Cores personalizadas apenas para os flip-cards da dupla-fixa === */
+        .cards-container.dupla-fixa .flip-card-back {
+            color: #015A42; /* roxo escuro para o texto */
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .cards-container.dupla-fixa {
+                grid-template-columns: 1fr;
+            }
+
+            .cards-container.dupla-fixa .flip-card {
+                width: 90%;
+                height: auto;
+                min-height: 320px;
+            }
+        }
+
+        /* Acordeon styles */
+        .acordeon-container {
+            margin-top: 20px;
+            width: 90%; /* Ajuste de largura */
+            max-width: 800px; /* Limite máximo */
+        }
+
+        .acordeon {
+            border-radius: 10px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .acordeon-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #3a95a6;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            font-size: 17px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .acordeon-headerb {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #134969;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            font-size: 17px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .acordeon-headerc {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #9F43BE;
+            color: #FFF;
+            cursor: pointer;
+            padding: 15px;
+            font-size: 17px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .acordeon-headerd {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #134969; /* exemplo: laranja suave */
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            font-size: 17px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .acordeon-content {
+            display: none;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            padding-top: 0; /* Remove padding para que o header toque no conteúdo */
+            border: 2px solid #3a95a6;
+            border-radius: 0 0 10px 10px; /* Apenas canto inferior arredondado */
+        }
+
+        .acordeon-contentb {
+            display: none;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            padding-top: 0; /* Remove padding para que o header toque no conteúdo */
+            border: 2px solid #134969;
+            border-radius: 0 0 10px 10px; /* Apenas canto inferior arredondado */
+        }
+
+        .acordeon-contentc {
+            display: none;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            padding-top: 0; /* Remove padding para que o header toque no conteúdo */
+            border: 2px solid #9F43BE;
+            border-radius: 0 0 10px 10px; /* Apenas canto inferior arredondado */
+        }
+
+        .acordeon-contentd {
+            display: none;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            padding-top: 0; 
+            border: 2px solid #134969; /* mesma cor da header para consistência */
+            border-radius: 0 0 10px 10px; 
+        }
+
+        .acordeon-content p {
+            margin: 20px auto;
+            font-size: 16px;
+        }
+        .acordeon-contentb p {
+            margin: 20px auto;
+            font-size: 16px;
+        }
+        .acordeon-contentc p {
+            margin: 20px auto;
+            font-size: 16px;
+        }
+        .acordeon-contentc h4 {
+            text-align: center;
+
+        }
+        .acordeon-contentd p {
+            margin: 20px auto;
+            font-size: 16px;
+        }
+        .tituloacordeonverde{
+            color: #015A42;
+        }
+            /* Estilo do ícone da seta */
+        .acordeon-icon {
+            font-size: 40px;
+            transition: transform 0.3s ease; /* Para rotação suave */
+        }
+            
+            /* Rotação da seta para cima */
+        .acordeon-header.active .acordeon-icon {
+            transform: rotate(180deg); /* Gira a seta para cima */
+        }
+        /* Rotação da seta para cima */
+        .acordeon-headerb.active .acordeon-icon {
+            transform: rotate(180deg); /* Gira a seta para cima */
+        }
+        /* Rotação da seta para cima */
+        .acordeon-headerc.active .acordeon-icon {
+            transform: rotate(180deg); /* Gira a seta para cima */
+        }
+                /* Ícone giratório */
+        .acordeon-headerd.active .acordeon-icon {
+            transform: rotate(180deg);
+        }
+       
+                /* Mantém fórmulas normais no desktop */
+        .acordeon-contentc mjx-container {
+            display: inline-block !important;
+            overflow: visible !important;
+            white-space: normal !important;
+            max-width: 100%;
+            text-align: center;
+        }
+        /* 📱 Responsividade — corrige fórmulas longas no mobile */
+        @media (max-width: 600px) {
+            .acordeon-contentc {
+                overflow-x: auto;
+                overflow-y: hidden;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: 6px; /* dá um pequeno respiro no scroll */
+            }
+
+            /* Cada expressão matemática vira um bloco rolável */
+            .acordeon-contentc mjx-container {
+                display: block !important;
+                overflow-x: auto !important;
+                overflow-y: hidden !important;
+                white-space: nowrap !important;
+                text-align: left !important;
+                max-width: 100%;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            /* Centraliza visualmente os parágrafos dentro do acordeon */
+            .acordeon-contentc p {
+                text-align: center;
+                margin: 10px auto;
+            }
+        }
+
+                    /* --- Força mínima para que mjx fique rolável no mobile --- */
+            @media (max-width: 600px) {
+            /* Container do conteúdo: permitir overflow-x funcional */
+            .acordeon-contentc {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                /* não mexemos em overflow-y, nem no overflow do .acordeon (mantemos o visual) */
+            }
+
+            /* mjx-container: garantir que o conteúdo interno possa ter largura natural maior
+                (min-width: max-content faz com que o elemento não seja encolhido) */
+            .acordeon-contentc mjx-container {
+                display: inline-block !important;
+                white-space: nowrap !important;           /* evita wrap que "quebra" largura */
+                min-width: -webkit-min-content !important;
+                min-width: -moz-min-content !important;
+                min-width: min-content !important;
+                pointer-events: auto !important;          /* garante que toques atinjam este elemento */
+                touch-action: auto !important;
+                -webkit-overflow-scrolling: touch !important;
+            }
+
+            /* Se você usa spans com inline-block dentro de p (como seu exemplo),
+                garantir que eles não forcem comportamento estranho: */
+            .acordeon-contentc p,
+            .acordeon-contentc p > span {
+                overflow: visible;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            }
+        /* Responsividade para telas menores */
+        @media (max-width: 768px) {
+            .acordeon-header {
+                font-size: 20px; /* Reduzir tamanho do texto */
+                padding: 12px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 30px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-content {
+                font-size: 14px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 10px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-content p {
+                margin: 15px; /* Ajustar margem para menor espaçamento */
+            }
+            .acordeon-headerb {
+                font-size: 20px; /* Reduzir tamanho do texto */
+                padding: 12px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 30px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-contentb {
+                font-size: 14px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 10px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-contentb p {
+                margin: 15px; /* Ajustar margem para menor espaçamento */
+            }
+
+            .acordeon-headerc {
+                font-size: 20px; /* Reduzir tamanho do texto */
+                padding: 12px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 30px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-contentc {
+                font-size: 14px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 10px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-contentc p {
+                margin: 15px; /* Ajustar margem para menor espaçamento */
+            }
+            .acordeon-headerd {
+                font-size: 20px;
+                padding: 12px;
+            }
+
+            .acordeon-contentd {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .acordeon-contentd p {
+                margin: 15px;
+            }
+        }
+        /* Responsividade para telas menores ainda (480px) */
+        @media (max-width: 480px) {
+            .acordeon-header {
+                font-size: 16px; /* Reduz ainda mais o tamanho do texto */
+                padding: 10px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 25px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-content {
+                font-size: 13px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 8px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-content p {
+                margin: 10px; /* Ajustar margem para menor espaçamento */
+                font-size: 19px;
+            }
+            .acordeon-headerb {
+                font-size: 16px; /* Reduz ainda mais o tamanho do texto */
+                padding: 10px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 25px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-contentb {
+                font-size: 13px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 8px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-contentb p {
+                margin: 10px; /* Ajustar margem para menor espaçamento */
+                font-size: 19px;
+            }
+
+            .acordeon-headerc {
+                font-size: 0.9rem; /* Reduz ainda mais o tamanho do texto */
+                padding: 10px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 25px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-contentc {
+                font-size: 13px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 8px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-contentc p {
+                margin: 10px; /* Ajustar margem para menor espaçamento */
+                font-size: 0.9rem;
+            }
+            .acordeon-headerd {
+                font-size: 16px;
+                padding: 10px;
+            }
+
+            .acordeon-contentd {
+                font-size: 13px;
+                padding: 8px;
+            }
+
+            .acordeon-contentd p {
+                margin: 10px;
+                font-size: 19px;
+            }
+        }
+            /* Acordeon styles FIM */
+
+            .download-section {
+                padding: 15px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 15px;
+            }
+            .download-btn {
+                background-color: #9F43BE;
+                color: white;
+                text-decoration: none;
+                font-size: 16px;
+                padding: 10px 15px;
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                transition: all 0.3s ease;
+                font-weight: bold;
+                margin-top: 80px;
+            }
+
+            .download-btn i {
+                font-size: 18px;
+            }
+
+            .download-btn:hover {
+                background-color: #7D3598;
+            }
+                /* ===== Seções de Conclusão e Referências ===== */
+        .conclusao, .referencias {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .conclusao {
+            background-color: #E2F4EB; /* fundo suave */
+        }
+
+        .referencias {
+            background-color: #FFF;
+            border-top: 3px solid #015A42;
+            border-bottom: 3px solid #015A42;
+        }
+
+        /* Títulos */
+        .titulo-conclusao, .titulo-referencias {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 50px;
+            font-weight: lighter;
+            color: #015A42;
+            margin: 10px auto 20px auto;
+            text-align: left; /* garante centralização em desktop */
+        }
+
+        /* Caixas de texto */
+        .conclusao .caixa-texto, 
+        .referencias .caixa-texto {
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Parágrafos */
+        .conclusao .caixa-texto p,
+        .referencias .caixa-texto p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 19px;
+            line-height: 1.6;
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+
+        /* Cores de texto diferentes */
+        .conclusao .caixa-texto p {
+            color: #333;
+        }
+        .referencias .caixa-texto p {
+            color: #000;
+        }
+
+        /* Links em referências */
+        .referencias .caixa-texto a {
+            word-break: break-all;
+            color: #015A42;
+            text-decoration: underline;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .titulo-conclusao, .titulo-referencias {
+                font-size: 2rem;
+            }
+            .conclusao .caixa-texto p,
+            .referencias .caixa-texto p {
+                font-size: 1rem;
+                line-height: 1.4;
+            }
+            .conclusao .caixa-texto, 
+            .referencias .caixa-texto {
+                max-width: 95%;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .titulo-conclusao, .titulo-referencias {
+                font-size: 1.8rem;
+            }
+            .conclusao .caixa-texto, 
+            .referencias .caixa-texto {
+                max-width: 100%;
+                padding: 10px;
+            }
+        }
+
+        /* Estilização do rodapé */
+        .footer {
+            border-top: 3px solid #015A42; /* Borda superior */
+            background-color: #FFFFFF; /* Fundo branco */
+            text-align: center; /* Centralizar texto */
+            padding: 15px 0; /* Espaçamento interno */
+            box-sizing: border-box; /* Inclui padding nas dimensões */
+        }
+
+        .footer p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+            color: #015A42; /* Cor do texto */
+            margin: 0; /* Remove espaçamento externo */
+        }
+        /* Texto descritivo */
+        .footer .fonte-menor {
+            font-family: 'Roboto', sans-serif;
+            font-size: 13px;
+            color: #555; /* Cor neutra */
+            line-height: 1.5; /* Espaçamento entre linhas */
+            display: block; /* Garante quebra para nova linha */
+            margin-top: 10px; /* Espaço entre o texto e o divisor */
+        }
+                /* Divisor */
+        .footer-divider {
+            border: none; /* Remove borda padrão */
+            height: 1px; /* Altura da linha */
+            background-color: #015A42; /* Cor da linha */
+            margin: 10px auto; /* Espaçamento vertical */
+            width: 80%; /* Define a largura do divisor */
+            opacity: 0.5; /* Reduz opacidade para suavizar */
+        }
+                /* Ajustes do rodapé para mobile */
+        @media (max-width: 480px) {
+            .footer p {
+                font-size: 15px; /* Ajusta o tamanho da fonte */
+            }
+            .footer .fonte-menor {
+                font-size: 12px; /* Reduz tamanho da fonte */
+                line-height: 1.4; /* Ajusta o espaçamento */
+            }
+            .footer-divider {
+                width: 100%; /* Ajusta largura do divisor no mobile */
+            }
+        }
+        .logo-final {
+            background-color: #b9e5a92c;
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 3px solid #015A42;
+        }
+
+        .logo-final img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+        }
+        /* Nova seção com os títulos ocupando a tela inteira */
+        .ficha-titulos {
+            background-color: #fff;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .ficha-titulos h2,
+        .ficha-titulos h3 {
+            font-family: 'Bebas Neue', cursive;
+            font-weight: lighter;
+            font-size: 40px;
+            color: #0058B4;
+            margin: 10px 0;
+        }
+
+        /* Mantemos a ficha técnica como estava */
+        .ficha-tecnica {
+            background-color: #FFF;
+            padding: 60px 20px;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+        }
+
+        .ficha-tecnica p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 15px auto;
+            max-width: 700px;
+        }
+
+        .ficha-tecnica strong {
+            display: block;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .paragraforeduzido {
+            font-size: 14px;
+        }
+
+                /* Wrapper para evitar quebra de layout com MathJax */
+        .math-responsive {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            width: 100%;
+        }
+
+        .math-responsive mjx-container {
+            overflow-x: auto !important;
+            max-width: 100% !important;
+        }
+
+        /* Em telas pequenas, permitir rolagem horizontal */
+        @media (max-width: 600px) {
+            .math-responsive {
+                padding-bottom: 6px; /* espaço para indicar scroll */
+            }
+        }
+
+                /* Wrapper exclusivo para esse bloco */
+        .math-responsive-2 {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            width: 100%;
+        }
+
+        /* Garantir que cada container MathJax se comporte responsivamente */
+        .math-responsive-2 mjx-container {
+            max-width: 100% !important;
+            overflow-x: auto !important;
+            display: block;
+        }
+
+        /* Para evitar cortes de formulas inline muito longas */
+        .math-responsive-2 mjx-container mjx-math {
+            white-space: nowrap;
+        }
+
+        /* Apenas no mobile */
+        @media (max-width: 600px) {
+
+            /* espaço para indicar que há scroll horizontal */
+            .math-responsive-2 {
+                padding-bottom: 6px;
+            }
+
+            /* Reduz levemente o tamanho da fonte das equações */
+            .math-responsive-2 mjx-container {
+                font-size: 0.92rem; /* ajuste fino que não distorce */
+            }
+        }
+
+      /* Wrapper exclusivo deste trecho */
+.math-responsive-3 {
+    width: 100%;
+    overflow-x: visible; /* no desktop: não gera scroll */
+}
+
+/* MathJax container — NÃO força quebra */
+.math-responsive-3 mjx-container {
+    max-width: 100% !important;
+    overflow-x: auto; /* permite scroll apenas quando necessário */
+    overflow-y: hidden;
+}
+
+/* Inline não pode causar quebras */
+.math-responsive-3 mjx-container[jax="CHTML"][display="false"] {
+    display: inline-flex !important;
+    align-items: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+/* Display block (ex: $$ $$) continua normal */
+.math-responsive-3 mjx-container[jax="CHTML"][display="true"] {
+    display: block !important;
+    margin: 12px 0 !important;
+    white-space: nowrap;
+}
+
+/* Evita cortes de fórmulas longas */
+.math-responsive-3 mjx-container mjx-math {
+    white-space: nowrap;
+}
+
+/* Somente no MOBILE */
+@media (max-width: 600px) {
+
+    .math-responsive-3 {
+        overflow-x: auto;       /* scroll apenas no mobile */
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 6px;    /* indica área rolável */
+    }
+
+    /* redução leve apenas no mobile */
+    .math-responsive-3 mjx-container {
+        font-size: 0.92rem;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="https://drive.google.com/thumbnail?id=1iZTd5_tOqqVTFtrgbqdKazN1J1Yk-PuE" alt="Logo">
+        </div>
+        <div class="menu-toggle">
+            <i class="bx bx-menu"></i>
+            <i class="bx bx-x" style="display: none;"></i> <!-- Ícone de fechar menu -->
+        </div>
+        <ul>
+            <li><a href="#introducao">Introdução</a></li>
+            <li><a href="#secao1">Tópico 1</a></li>
+            <li><a href="#secao2">Tópico 2</a></li>
+            <li><a href="#secao3">Tópico 3</a></li>
+            <li><a href="#secao4">Tópico 4</a></li>
+            <li><a href="#secao5">Tópico 5</a></li>
+            <li><a href="#secao6">Tópico 6</a></li>
+            <li><a href="#download">Download</a></li>
+            <li><a href="#conclusao">Conclusão</a></li>
+            <li><a href="#referencias">Refs Bibliográficas</a></li>
+        </ul>
+    </div>
+    
+    
+    <!-- ESPAÇAMENTO -->
+    <section id="titulo" class="titulo-intro">
+        <h1 class="titulo-programa"></h1>
+    </section>
+    <!-- ESPAÇAMENTO -->
+    <section id="titulo" class="titulo-intro">
+        <h1 class="titulo-programa"></h1>
+    </section>
+    <!-- ESPAÇAMENTO -->
+    
+    <!-- Capa do Livro -->
+    <section id="capa-livro" class="capa-livro">
+        <div class="borda superior"></div>
+        <div class="conteudo-capa">
+            <h1 class="titulo-programa">PROGRAMA DE ATUALIZAÇÃO em fundamentos da</h1>
+            <h1 class="titulo-materia">Física - NÍVEL 1</h1>
+            <h2 class="subtitulo-professor">Profª Monica Tais Siqueira D'Amelio Felippe</h2>
+            <h2 class="subtitulo-professor">Prof. Murillo Preto Cardoso Junior</h2>
+        </div>
+        <div class="borda inferior"></div>
+    </section>
+    
+    <!-- ESPAÇAMENTO -->
+    <section id="titulo" class="titulo-intro">
+        <h1 class="titulo-programa"></h1>
+    </section>
+    <!-- ESPAÇAMENTO -->
+    <section id="titulo" class="titulo-intro">
+        <h1 class="titulo-programa"></h1>
+    </section>
+    <!-- ESPAÇAMENTO -->
+    
+    
+    <!-- Seção Introdução -->
+    <section id="introducao" class="introducao">
+        <!-- Barra Superior -->
+        <div class="barra-superior">
+            <h1 class="titulo-barra">UNIDADE 4 | CINEMÁTICA - MOVIMENTO UNIFORMEMENTE VARIADO</h1>
+        </div>
+    
+        <!-- Conteúdo -->
+        <div class="caixa-texto">
+            <div class="conteudo-centralizado">
+                <h1 class="titulo-introducao">INTRODUÇÃO</h1>
+    
+                <p>
+                    Você já reparou como o movimento dos objetos ao nosso redor nem sempre acontece em ritmo constante?
+                    Quando um carro freia, um avião decola ou mesmo quando você solta uma bola de uma altura, a velocidade
+                    vai mudando com o tempo. Esses são exemplos do que chamamos de Movimento Uniformemente Variado
+                    (M.U.V.), que ocorre quando há uma aceleração constante agindo sobre o corpo em movimento.
+                </p>
+                <p>
+                    Nesta unidade, vamos conversar sobre conceitos importantes que ajudam a compreender esse tipo
+                    de movimento, como velocidade média, velocidade instantânea e aceleração escalar. Também vamos
+                    entender as diferenças entre movimentos acelerados e retardados, além de estudar as funções horárias
+                    que descrevem a posição e a velocidade ao longo do tempo. Tudo isso com exemplos práticos, fórmulas e
+                    explicações passo a passo para que você possa se sentir seguro ao resolver qualquer problema envolvendo
+                    o M.U.V.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="secao1" id="secao1">
+        <div class="faixa-verde">
+            <h1 class="titulo-secao">
+                1. MOVIMENTO UNIFORMEMENTE VARIADO
+            </h1>
+        </div>
+        <p>
+            Os movimentos são classificados em <b>movimentos uniformes</b> e <b>movimentos variados</b> (Toda Matéria,
+            s.d.). Clique nas abas para ler:
+        </p>
+        <br><br>
+        <div class="tabs-container">
+            <div class="tab-buttons">
+                <button class="tab-button active" data-tab="tab1">I - Movimentos Uniformes</button>
+                <button class="tab-button" data-tab="tab2">II - Movimentos Variados</button>
+            </div>
+        
+            <div id="tab1" class="tab-content active">
+                I - A velocidade escalar é constante, ou seja, a velocidade escalar do movimento é a
+                mesma em qualquer ponto da trajetória.
+            </div>
+        
+            <div id="tab2" class="tab-content">
+                II - A velocidade escalar varia ao longo do tempo.
+            </div>
+        </div>
+        <br><br>
+        <p>
+            Os movimentos de velocidade escalar variável são mais comuns na Natureza, pois um corpo em movimento
+            pode aumentar ou reduzir sua velocidade para se adequar às necessidades do movimento.
+        </p>
+        <p>
+            Nos movimentos variados, devemos diferenciar duas velocidades: a <b>velocidade escalar média</b> e a
+            <b>velocidade escalar instantânea</b> (Halliday, 2003).
+        </p>
+        <br>
+        <div class="bloco-regra">
+            A <b>velocidade escalar média</b> é definida em um determinado intervalo de tempo:<br>
+            <br>
+            $$
+            V_m = \frac{\Delta S}{\Delta t} = \frac{S_2 - S_1}{t_2 - t_1}
+            $$
+            <br>
+            <div class="texto-justificado">
+                A <b>velocidade escalar instantânea</b> representa a velocidade em dado instante e pode
+                ser definida como o limite da velocidade escalar média, quando a variação do tempo
+                tende a zero.
+            </div>
+            <br>
+            $$
+            V = \lim_{\Delta t \to 0} \frac{\Delta S}{\Delta t}
+            $$
+            <br>
+
+            <div class="texto-justificado">
+                Onde:
+            </div>
+            <ul class="lista-compacta">
+                <li> \( V_m \) é a velocidade média; </li>
+                <li> \( \Delta S \) é a variação de posição; </li>
+                <li> \( \Delta t \) é a variação do tempo; </li>
+                <li> \( S_2 \) é a posição final; </li>
+                <li> \( S_1 \) é a posição inicial; </li>
+                <li> \( t_2 \) é o instante final; </li>
+                <li> \( t_1 \) é o instante inicial; </li>
+                <li> \( v \) é a velocidade instantânea. </li>
+            </ul>
+            
+        </div>
+        <br>
+    </section>
+    <section class="secao2" id="secao2">
+        <div class="faixa-verde">
+            <h1 class="titulo-secao">
+                2. ACELERAÇÃO ESCALAR
+            </h1>
+        </div>
+
+        <p>
+            Em um movimento variado, a velocidade do móvel é variável ao longo de sua trajetória. Assim, temos uma
+            velocidade e uma velocidade associada ao instante \( t_2 \). Seja \( \Delta v = v_2 - v_1 \) a variação de velocidade no intervalo de tempo
+            \( \Delta t = t_2 - t_1\). A aceleração escalar média \( (a_m) \), no intervalo de tempo \( \Delta t \) é dada pela razão entre a variação da velocidade por uma determinada variação do tempo,
+            e pode ser representada por (Só Física, s.d.):
+        </p>
+
+        <br>
+        <div class="bloco-regra">
+            
+            $$
+            a_m = \frac{\Delta v}{\Delta t} = \frac{v_2 - v_1}{t_2 - t_1}
+            $$
+            <br>
+            <div class="texto-justificado">
+                Onde: \( a_m \) é a aceleração média; \( \Delta v \) é variação de velocidade;
+                \( \Delta t \) é a variação do tempo; \( v_2 \) é a velocidade final; \( v_1 \) é 
+                a velocidade inicial; \( t_2 \) é o instante final; \( t_1 \) é o instante inicial.
+            </div>
+            
+        
+        </div>
+        <br>
+
+        <p>
+            Note que a aceleração escalar média é a grandeza que indica o quanto varia a velocidade escalar em
+            certo intervalo de tempo.
+        </p>
+        <p>
+            A aceleração escalar instantânea \( (a) \) pode ser compreendida como uma aceleração escalar média
+            \( a_m = \frac{\Delta v}{\Delta t}\) quando consideramos o intervalo de tempo \( \Delta t \) um valor extremamente pequeno, ou seja, quando
+            \( \Delta t \) tende a zero ou quando \( t_2 \) é muito próximo de \( t_1 \).
+            Nesse caso, a aceleração escalar instantânea pode ser definida como o valor limite da aceleração escalar média para
+            quando \( \Delta t \) tende a zero, e pode ser representada por (Alonso, 2015):
+        </p>
+        <br>
+        <div class="bloco-regra">
+        
+            $$ a = \lim_{\Delta t \to 0} \frac{\Delta v}{\Delta t} $$
+            <br>
+            <div class="texto-justificado">
+                Onde: \(a\) é a aceleração instantânea; \( \Delta v \) é variação de velocidade;
+                \( \Delta t \) é a variação do tempo; 
+            </div>
+        </div>
+        <br>
+
+        <p>
+            Dado que no Sistema Internacional de Unidades (S.I) a velocidade é medida em m/s (metro por segundo)
+            e o tempo em s (segundos), a aceleração \(a\) definida por \(\frac{\Delta v}{\Delta t}\) será medida em
+            \(\large \frac{m/s}{s}\) (metro por segundo,
+            por segundo), que se indica por m/s² (metro por segundo ao quadrado) (Toda Matéria, s.d.).
+        </p>
+        <p>
+            Consideramos que a variação de velocidade \( \Delta v \) pode ser positiva ou negativa, caso o móvel aumente
+            ou reduza a velocidade em certo intervalo de tempo. Podemos definir que a aceleração escalar pode ser
+            negativa ou positiva. Importante ressaltar que, no movimento uniforme, a velocidade escalar é constante
+            e a aceleração escalar é nula.
+        </p>
+
+        <br>
+        <div class="quadro-problema">
+            <div class="topo">
+                <p>
+                    <strong>Exemplo</strong>
+                </p>
+                <p>
+                    Um piloto de Fórmula 1 está se movendo a 250 km/h quando chega a uma curva, sendo
+                    forçado a reduzir a velocidade de seu veículo para 88 km/h em um intervalo de tempo
+                    de 3 segundos. Qual é a aceleração escalar média do carro, expressa em m/s², nesse
+                    intervalo de tempo?
+                </p>
+                <p>
+                    <strong>Solução:</strong>
+                </p><br>
+                <p>
+                    Temos que:
+                </p>
+                <p>
+                    \( v_1 = 250\ \text{km/h}\) e \( v_2 = 88\ \text{km/h}\).
+                </p><br>
+                <p>
+                    Desta forma, a variação da velocidade:
+                </p>
+                <p>
+                    \(\Delta v = v_2 - v_1 = 88 - 250 = -162\ \text{km/h}\).
+                </p><br>
+                <p>
+                    Convertendo a unidade de velocidade de km/h para m/s, temos:
+                </p>
+                <p>
+                    \( \large \Delta v = \frac{-162}{3,6}\ \text{m/s} = -45\ \text{m/s}\).
+                </p><br>
+                <p>
+                    O intervalo de tempo é \( \Delta t = 3 s\).
+                </p>
+                <p>
+                    Portanto, a aceleração escalar média é dada por:
+                </p>
+                <p>
+                    \( \Large a_m = \frac{\Delta v}{\Delta t} = \frac{-45}{3}\,\frac{\text{m/s}}{\text{s}} = -15\ \text{m/s}^2\).
+                </p>
+                <p>
+                    Podemos concluir que o carro de Fórmula 1 reduz sua velocidade em 15 m/s a cada
+                    segundo.
+                </p>
+                <br>
+            </div>
+            
+        </div>
+    </section>
+    <section class="secao1" id="secao3">
+        <div class="faixa-verde">
+            <h1 class="titulo-secao">
+                3. MOVIMENTO ACELERADO E RETARDADO
+            </h1>
+        </div>
+        <p>
+            Em Cinemática, é comum classificarmos os movimentos variados em <b>acelerados</b> ou <b>retardados</b>.
+            Assumimos uma ou outra característica quando analisamos se o móvel, em sua trajetória, aumenta ou
+            reduz sua velocidade em certo intervalo de tempo (Halliday, 2003). Clique nas abas para ler:
+        </p>
+        <br><br>
+        <div class="tabs-container">
+            <div class="tab-buttons">
+                <button class="tab-button active" data-tab="tab1">I - Movimento Acelerado</button>
+                <button class="tab-button" data-tab="tab2">II - Movimento Retardado</button>
+            </div>
+        
+            <div id="tab1" class="tab-content active">
+                I - O módulo (valor absoluto) da velocidade escalar aumenta no decorrer do tempo
+            </div>
+        
+            <div id="tab2" class="tab-content">
+                II - O módulo da velocidade escalar diminui no decorrer do tempo.
+            </div>
+        </div>
+        <br><br>
+        <p>
+            O sinal da aceleração escalar depende do sinal da variação da velocidade e, a depender da trajetória,
+            o movimento acelerado pode ser progressivo (na mesma direção da trajetória) ou retrógrado (oposto a
+            direção da trajetória). Isso também ocorre no movimento retardado (Alonso, 2015). Veja, clicando nos
+            <i>cards</i> a seguir:
+        </p>
+        <br><br>
+        <div class="cards-container">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        Movimento<br>
+                        Acelerado
+                    </div>
+                    <div class="flip-card-back">
+                        O módulo da
+                        velocidade
+                        escalar aumenta
+                        no decurso do
+                        tempo.<br><br>
+                        A velocidade e a
+                        aceleração têm o
+                        mesmo sinal.
+
+                    </div>
+                </div>
+            </div>
+        
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        Movimento<br>
+                        Retardado
+                    </div>
+                    <div class="flip-card-back">
+                        O módulo da
+                        velocidade
+                        escalar diminui
+                        no decurso do
+                        tempo.<br><br>
+                        A velocidade e a
+                        aceleração têm
+                        sinais opostos.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <div class="math-responsive-2">
+        <div class="quadro-problema">
+            <div class="topo">
+                <p>
+                    <strong>Exemplo</strong>
+                </p>
+                <p>
+                    Num movimento, a velocidade escalar do móvel varia em função do tempo, de acordo
+                    com os valores apresentados na tabela. O sinal da velocidade indica o sentido do movi
+                    mento em relação à orientação da trajetória.
+                </p>
+                <br>
+                <!-- Imagem do exercício -->
+                <div class="figura-container-reduzida">
+                    <img class="zoomable" src="https://res.cloudinary.com/di4ria1pf/image/upload/v1764792018/Tabela_sem_numero_1_szhzrg.png"
+                        alt="">
+                </div>
+                <br>
+                <p>
+                    <strong>Determine:</strong>
+                </p>
+                <p>
+                    a) Se o movimento é uniforme ou variado;
+                </p>
+                <p>
+                    b) A velocidade escalar do móvel no instante inicial \( (t = 0 s)\);
+                </p>
+                <p>
+                    c) Se o movimento é acelerado ou retardado nos intervalos de 0 s a 4 s e de 6 s a 8 s;
+                </p>
+                <p>
+                    d) A aceleração escalar média de 0 s a 2 s, de 3 s a 5 s e de 4 s a 7 s.
+                </p>
+                <br>
+                <p>
+                    <strong>Resolução:</strong>
+                </p>
+                <p>
+                    a) O movimento é variado, pois sua velocidade escalar varia no decorrer do tempo;
+                </p>
+                <p>
+                    b) Da tabela, em \( t = 0 s\), temos \( v_0 = 10 \ m/s\). A velocidade escalar no instante inicial é
+                    denominada velocidade inicial \(\large v_0\).
+                </p>
+                <p>
+                    c) No intervalo de 0 s a 4 s o módulo da velocidade diminui com o decorrer do tempo,
+                    portanto o movimento é retardado. No intervalo de 6 s a 8 s, o módulo da velocidade
+                    aumenta no decorrer do tempo, portanto movimento acelerado.
+                </p>
+                <p>
+                    d) No intervalo de 0 s a 2 s:
+                </p><br>
+                <p>
+                    \(\large v_0 = 10\ \text{m/s};\quad v_2 = 6\ \text{m/s};\ \Rightarrow\ \Delta v = v_2 - v_0 = 6 - 10 = -4\ \text{m/s} \)
+                </p>
+                <p>
+                    $$ \large \Delta v = -4\ \text{m/s};\quad \Delta t = 2\ \text{s};\ \Rightarrow\ a_m = \frac{\Delta v}{\Delta t} = \frac{-4}{2} =
+                    -2\ \text{m/s}^2 $$
+                </p><br>
+                <p>
+                    No intervalo de 3 s a 5 s:
+                </p><br>
+                <p>
+                    \( \large v_3 = 4\ \text{m/s};\quad v_5 = 0\ \text{m/s};\ \Rightarrow\ \Delta v = v_5 - v_3 = 0 - 4 = -4\ \text{m/s} \)
+                </p>
+                <p>
+                    $$ \large \Delta v = -4\ \text{m/s};\quad \Delta t = 2\ \text{s};\ \Rightarrow\ a_m = \frac{\Delta v}{\Delta t} = \frac{-4}{2} =
+                    -2\ \text{m/s}^2 $$
+                </p><br>
+                <p>
+                    No intervalo de 4 s a 7 s:
+                </p><br>
+                <p>
+                    \( \large v_4 = 2\ \text{m/s};\quad v_7 = -4\ \text{m/s};\ \Rightarrow\ \Delta v = v_7 - v_4 = (-4) - 2 = -6\ \text{m/s} \)
+                </p>
+                <p>
+                    $$ \large \Delta v = -6\ \text{m/s};\quad \Delta t = 3\ \text{s};\ \Rightarrow\ a_m = \frac{\Delta v}{\Delta t} = \frac{-6}{3} =
+                    -2\ \text{m/s}^2 $$
+                </p>
+                <br>
+                <p>
+                    <b>Respostas:</b>
+                </p>
+                
+                <p>a) Variado;</p>
+                <p>b) \(v_0 = 10 \ \text {m/s}\).</p>
+                <p>c) de 0 s a 4 s: retardado; de 6 s a 8 s: acelerado;</p>
+                <p>d) -2 m/s²; -2 m/s²; -2 m/s².</p>
+            </div>
+        </div>
+        </div>
+    </section>
+    <section class="secao2" id="secao4">
+        <div class="faixa-verde">
+            <h1 class="titulo-secao">
+                4. MOVIMENTO UNIFORMEMENTE VARIADO (M.U.V.)
+            </h1>
+        </div>
+        <p>
+            Os movimentos que apresentam aceleração escalar constante (e não-nula) são chamados movimentos
+            uniformemente variados. O M.U.V. ocorre se a aceleração escalar é a mesma em todos os instantes e
+            coincide com a aceleração escalar média durante qualquer intervalo de tempo \( \Delta t\).
+        </p>
+        <br>
+        <div class="bloco-regra">
+            <p style="text-align:center;">
+                \( a = a_{m} = \dfrac{\Delta v}{\Delta t} = \text{constante} \neq 0 \)
+            </p>
+        </div>
+        <br>
+        <p>
+            Assim, em um movimento uniformemente variado, a variação da velocidade \( \Delta v\)
+            é diretamente proporcional ao intervalo de tempo \( \Delta t\) associado (o termo proporcional significa que a velocidade escalar apresenta
+            variações iguais em intervalos de tempos iguais).
+        </p>
+    </section>
+    <section class="secao1" id="secao5">
+        <div class="faixa-verde">
+            <h1 class="titulo-secao">
+                5. FUNÇÕES HORÁRIAS DO M.U.V.
+            </h1>
+        </div>
+        <p>
+            Em um movimento uniformemente variado, a velocidade varia de acordo com a presença de uma aceleração
+            escalar constante - e não-nula - e a variação das posições da trajetória descrita pelo móvel. Assim, devemos
+            caracterizar a função horária da velocidade e função horária da posição que representam o movimento
+            (Helerbrock, s.d.).
+        </p>
+        <div class="faixa-verde">
+            <h1 class="titulo-secao" style="font-size: 22px !important;">
+                5.1 FUNÇÃO HORÁRIA DA VELOCIDADE
+            </h1>
+        </div>
+        <p>
+            Considerando que no M.U.V. a aceleração escalar é constante e \(v_0\) 
+            é a velocidade no instante \(t = 0 \), podemos assumir que (Júnior, s.d.):
+        </p>
+        <br>
+        <div class="math-responsive">
+            <div class="bloco-regra">
+        
+                $$
+                \large a = \frac{\Delta v}{\Delta t} \;\rightarrow\; a = \frac{v - v_0}{t - t_0} \;\rightarrow\; a = \frac{v -
+                v_0}{t - 0}
+                \;\rightarrow\; a = \frac{v - v_0}{t}
+                $$
+                <br>
+                Isolando a velocidade ;
+                <br>
+                $$
+                \large v - v_0 = a \cdot t
+                $$
+                $$
+                \large v = v_0 + a \cdot t
+                $$
+                <br>
+                Assim, podemos assumir que a função horária da velocidade do móvel é dada por:
+                <br>
+                $$
+                \large v = v_0 + a \cdot t
+                $$
+                Em que \(v\) indica a velocidade em um instante qualquer \(\large t\), \(\large v_0\) é a velocidade no instante
+                inicial \(\large t = 0\), \(\large a\) é a aceleração escalar e \(\large t\) é o tempo.
+                <br>
+            </div>
+        </div>
+        <br>
+        <div class="faixa-verde">
+            <h1 class="titulo-secao" style="font-size: 22px !important;">
+                5.2 FUNÇÃO HORÁRIA DA POSIÇÃO
+            </h1>
+        </div>
+        <p>
+            Para descrever de forma completa o movimento, devemos estabelecer a função horária das posições da
+            trajetória, isto é, como as posições variam no decurso do tempo.
+        </p>
+        <p>
+            A função horária da posição do M.U.V. é uma função do 2° grau de variável do tipo (Helerbrock, s.d.):
+        </p>
+        <br>
+        <div class="bloco-regra">
+            $$
+            \large S = S_0 + v_0 \cdot t + \frac{a}{2} \cdot t^2
+            $$
+            <p>
+                Em que \(S\) indica a posição do móvel em um instante qualquer \(t\), \(S_0\) é a posição inicial 
+                do móvel no instante \(t = 0\), \(v_0\) é a velocidade do móvel no instante \(t = 0\), \(a\) é a
+                aceleração escalar constante do M.U.V e \(t\) é o tempo.
+            </p>
+        </div>
+        <br>
+        <p>
+            Nesta função horária devemos observar que o coeficiente de \(t^2\) é \( \frac {a}{2}\).
+            Assim, se a função horária da posição for dada por \(S = {20} + {3t} + {8t^2}\) (para \(s\) em metros e \(t\) em segundos), temos:
+        </p>
+        <p>
+            $$ \frac{a}{2} = 8 \Rightarrow {a} = {8} \cdot {2} \Rightarrow {a} = {16} \ \text m/s^2 $$
+        </p>
+
+        <br>
+        <div class="math-responsive-3">
+        <div class="quadro-problema">
+            <div class="topo">
+                <p>
+                    <strong>Exemplo</strong>
+                </p>
+                <p>
+                    É dado o movimento cuja posição \(S\) na trajetória varia em função do tempo conforme:
+                </p>
+                <p>
+                    $$ S = 20 - 3t + 5t^2 \quad \text{(os instantes \(t\) estão medidos em segundos)} $$
+                </p>
+                <p>
+                    a) Determine o tipo geral do movimento.
+                </p>
+                <p>
+                    b) Determine o espaço inicial, a velocidade inicial e a aceleração escalar do movimento.
+                </p>
+                <p>
+                    c) Determine a função horária da velocidade.
+                </p>
+                <br>
+                <p>
+                    <b>Resolução:</b>
+                </p>
+                <p>
+                    a) O movimento é um M.U.V., pois as posições do móvel variam de acordo com uma
+                    função do 2° grau.
+                </p>
+                <p>
+                    b) Comparando \( S = S_0 + v_0 \cdot t + \frac{a}{2} \cdot t^2 \) com 
+                    \( S = 20 - 3t + 5t^2 \) identificamos que:
+                </p>
+                <p>
+                    $$ S_0 = 20\ \text{m}; \quad v_0 = -3\ \text{m/s}; \quad e \quad \frac{a}{2} = 5 \;\Rightarrow\; a = 10\ \text{m/s}^2 $$
+                </p>
+                <p>
+                    c) A função horária da velocidade é do tipo \( {v_0} + {at} \), na qual 
+                    \( {v_0} = {-3} \text{m/s}\) e \( {a} = {10} \text{m/s}^2\), logo:
+                </p><br>
+                <p>
+                    $$ {v} = {-3} + {10t} $$
+                </p>
+                <br>
+            </div>
+        </div>
+        </div>
+        <br>
+        <p>
+            Que tal assistir a uma aplicação das funções horárias? Clique e assista ao vídeo!
+        </p>
+        <br>
+        <div class="video-play-wrapper">
+            <div class="video-play-btn" data-video="https://drive.google.com/file/d/1Z8qe4kYt58ZBu2f4vHrApECHRpstVOBd/preview"
+                onclick="openVideoModal(this)">
+                <i class='bx bx-play'></i>
+            </div>
+            <div class="video-play-text">Clique para assistir</div>
+        </div>
+        
+        </div>
+        <!-- Modal com o vídeo -->
+        <div id="videoModal" class="video-modal" onclick="closeVideoModal()">
+            <div class="video-content" onclick="event.stopPropagation()">
+                <i class="bx bxs-x-circle close-btn" onclick="closeVideoModal()"></i>
+                <iframe id="videoIframe" width="800" height="450" src="" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+        <br>
+        <div class="faixa-verde">
+            <h1 class="titulo-secao" style="font-size: 22px !important;">
+                5.3 EQUAÇÃO DE TORRICELLI PARA O M.U.V.
+            </h1>
+        </div>
+        <p>
+            Em um movimento uniformemente variado, há casos em que interessa relacionar a velocidade escalar
+            em função da variação da posição \(\Delta t\). É possível fazê-lo pela chamada equação de Torricelli (Júnior, s.d.):
+        </p>
+        <br>
+        <div class="bloco-regra">
+            $$
+            \large v^2 = v^2 + 2 \cdot a \cdot \Delta S
+            $$
+            <p>
+                Em que \(v\) é a velocidade escalar, \(v_0\) é a velocidade inicial. \(a\)
+                é a aceleração escalar e \( \Delta S\) é a variação de posição dada por 
+                \( \Delta S = {S - S_0}.\)
+            </p>
+        </div>
+        <br>
+        <div class="quadro-problema">
+            <div class="topo">
+                <p>
+                    <strong>Exemplo</strong>
+                </p>
+                <p>
+                    Um carro a 90 km/h é freado uniformemente com a aceleração escalar de -2,5 m/s² até
+                    parar. Determine a variação da posição do móvel desde o início da frenagem até parar.
+                </p>
+                <br>
+                <p>
+                    <strong>Solução</strong>
+                </p>
+                <p>
+                    O problema pode ser resolvido usando as funções horárias da posição e da velocidade.
+                    Entretanto, com a equação de Torricelli a solução é mais rápida.
+                </p>
+                <p>
+                    A velocidade inicial do movimento é \( v_0 = {90} \text {km/h}\), convertendo-a para o S.I temos:
+                </p><br>
+                <p>
+                    $$ v_0 = \frac {90}{3,6} \text {m/s} = {25} \text {m/s} $$
+                </p><br>
+                <p>
+                    A aceleração escalar do movimento é \( a = {-2,5} \text {m/s}^2 \), o que caracteriza um movimento
+                    retardado (o móvel perde velocidade ao longo do tempo).
+                </p>
+                <p>
+                    A velocidade final \(v\) é nula, pois o móvel para no fim do percurso, logo \( v = {0} \ \text {m/s}\)
+                </p>
+                <p>
+                    Aplicando esses valores na equação de Torricelli \(v^2 = {v^2_0} + {2} \cdot a \cdot \Delta S \),
+                    temos:
+                </p><br>
+                <p>
+                    $$ (0)^2 = (25)^2 + 2 \cdot (-2{,}5) \cdot \Delta S $$
+                </p>
+                <p>$$ 0 = 625 - 5 \cdot \Delta S $$</p>
+                <p>
+                    Isolando \( \Delta S\),
+                </p>
+                <p>$$ 5 \cdot \Delta S = 625 $$</p>
+                <p>$$ \Delta S = \frac{625}{5} = 125\ \text{m}$$</p>
+                <br>
+                <p>
+                    <strong>Resposta:</strong>
+                </p>
+                <p>
+                    A variação da posição, do início da frenagem até a parada, será de 125 metros.
+                </p>
+                <br>
+            </div>
+        </div>
+        <br>
+        <p>
+            Vamos consolidar o conhecimento sobre Torricelli? Assista a esse vídeo!
+        </p>
+        <br>
+        <div class="video-play-wrapper">
+            <div class="video-play-btn" data-video="https://drive.google.com/file/d/1ptRvUF0sXW5qD91uJx2Ijor9G1U6_AzO/preview"
+                onclick="openVideoModal(this)">
+                <i class='bx bx-play'></i>
+            </div>
+            <div class="video-play-text">Clique para assistir</div>
+        </div>
+        
+        </div>
+        <!-- Modal com o vídeo -->
+        <div id="videoModal" class="video-modal" onclick="closeVideoModal()">
+            <div class="video-content" onclick="event.stopPropagation()">
+                <i class="bx bxs-x-circle close-btn" onclick="closeVideoModal()"></i>
+                <iframe id="videoIframe" width="800" height="450" src="" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+        <br>
+        <p>
+            Em suma: no M.U.V., temos (clique nos botões para ler):
+        </p>
+
+        <br>
+        <!-- Acordeons -->
+        <div class="acordeon-container">
+            <!-- Primeiro acordeon -->
+            <div class="acordeon">
+                <div class="acordeon-headerc">
+                    FUNÇÃO HORÁRIA DA POSIÇÃO
+                    <i class="bx bx-chevron-down acordeon-icon"></i>
+                </div>
+                <div class="acordeon-contentc">
+                    <p style="text-align: center;">
+                        $$ \large S = S_0 + v_0t + \frac{1}{2} a t^2 $$
+                    </p>
+                </div>
+            </div>
+        
+            <!-- Segundo acordeon -->
+            <div class="acordeon">
+                <div class="acordeon-headerc">
+                    FUNÇÃO HORÁRIA DA VELOCIDADE
+                    <i class="bx bx-chevron-down acordeon-icon"></i>
+                </div>
+                <div class="acordeon-contentc">
+                    <p style="text-align: center;">
+                        $$ \large v = v_0 + a t $$
+                    </p>
+                </div>
+            </div>
+
+            <!-- Segundo acordeon -->
+            <div class="acordeon">
+                <div class="acordeon-headerc">
+                    EQUAÇÃO DE TORRICELLI
+                    <i class="bx bx-chevron-down acordeon-icon"></i>
+                </div>
+                <div class="acordeon-contentc">
+                    <p style="text-align: center;">
+                        $$ \large v^{2} = v_0^{2} + 2 a \Delta S $$
+                    </p>
+                </div>
+            </div>
+
+            <!-- Segundo acordeon -->
+            <div class="acordeon">
+                <div class="acordeon-headerc">
+                    ACELERAÇÃO ESCALAR
+                    <i class="bx bx-chevron-down acordeon-icon"></i>
+                </div>
+                <div class="acordeon-contentc">
+                    <p style="text-align: center;">
+                        $$ \large a = \frac{\Delta v}{\Delta t} $$
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br>
+    </section>
+    <section class="secao2" id="secao6">
+        <div class="faixa-verde">
+            <h1 class="titulo-secao">
+                6. EXERCÍCIOS COMENTADOS
+            </h1>
+        </div>
+        <p>
+            Para resolver um problema, leia o enunciado na íntegra com concentração, e anote os pontos importantes
+            para, então, resolvê-los:
+        </p>
+
+        <br>
+        <div class="quadro-problema">
+            <div class="topo">
+                <p>
+                    <strong>1</strong>.
+                    Em um anúncio de certo tipo de automóvel, afirma-se que o veículo, partindo do repouso, atinge a
+                    velocidade de 72 km/h em 4 s. Qual a aceleração escalar média desse automóvel?
+                </p>
+            </div>
+            <div class="resolucao">
+                <p><strong>Resolução:</strong>
+                    Sabemos que a aceleração escalar média é calculada pela fórmula:
+                </p>
+                <br>
+                <p>
+                    $$ {a} = \frac {\Delta v}{\Delta t} $$
+                </p>
+                <br>
+                <p>
+                    Como o automóvel parte do repouso, a velocidade inicial é:
+                </p>
+                <p>
+                    $$ v_0 = {0} \ \text {m/s}. $$
+                </p>
+                <br>
+                <p>
+                    A velocidade final é de 72 km/h, mas devemos convertê-la para o Sistema Internacional (m/s):
+                </p>
+                <p>
+                    $$ {72} \ \text {km/h} = \frac {72}{3,6} = 20 \ \text {m/s} $$
+                </p>
+                <p>
+                    O intervalo de tempo fornecido é:
+                </p>
+                <p>
+                    $$ \Delta t = {4s} $$
+                </p>
+                <br>
+                <p>
+                    Aplicando os valores na fórmula:
+                </p>
+                <p>
+                    $$ {a} = \frac {v - v_0}{\Delta t} = \frac {20 - 0}{4} = {5} \text {m/s}^2$$
+                </p>
+                <br>
+                <p>
+                    <b>Resposta</b>: 
+                    O automóvel apresenta aceleração escalar média igual a \( 5 \ \text {m/s}^2\).
+                </p>
+            </div>
+        </div>
+        
+        <!-- Aplicando a correção nos cálculos problemáticos -->
+        <div class="quadro-problema">
+            <div class="topo">
+                <p><strong>2</strong>.
+                    Um automóvel está parado diante de um sinal fechado. No instante em que o farol fica verde, passa
+                    por ele uma motocicleta que mantém uma velocidade constante de \( 20 \ \text {m/s}\). 
+                    Supondo que, nesse mesmo instante, o automóvel comece a se mover com aceleração constante igual a
+                    \( 2 \ \text {m/s}^2\), determine:
+                </p>
+                <p>a) O tipo de movimento da motocicleta e do automóvel;</p>
+                <p>b) A função horária da posição da motocicleta;</p>
+                <p>c) A função horária da posição do automóvel;</p>
+                <p>d) A função horária da velocidade do automóvel;</p>
+            </div>
+            <div class="resolucao">
+                <p><strong>Resolução:</strong></p>
+                <p>a) Tipos de movimento</p>
+                <p>
+                    A motocicleta apresenta movimento uniforme (M.U.), pois sua velocidade é constante
+                    \( (20 \ \text {m/s})\).
+                </p>
+                <p>
+                    O automóvel apresenta movimento uniformemente variado (M.U.V.), pois parte do repouso com aceleração
+                    constante \( (20 \ \text {m/s}^2)\).
+                </p>
+                <br>
+                <p>
+                    b) Função horária da posição da motocicleta:
+                </p>
+                <p>
+                    Considerando o farol como marco zero, temos \( S_0 = 0\) e \( v = 20 \ \text {m/s} )\).
+                    Como o movimento da motocicleta é uniforme, temos que a função horária da posição é do tipo
+                    \( S = S_0 + vt\), logo:
+                </p><br>
+                <p>
+                    $$ S = 0 + 20t $$
+                </p>
+                <p>
+                    $$ S = 20t $$
+                </p>
+                <br>
+                <p>
+                    c) Função horária da posição do automóvel:
+                </p>
+                <p>
+                    A posição inicial do automóvel \( S_0 = 0 \ \text {m}\), a velocidade inicial
+                    \( v_0 = 0 \ \text {m/s}\), pois o automóvel estava parado e a aceleração escalar 
+                    \( a = {2} \ \text {m/s}^2 \). Como o movimento do automóvel é uniformemente variado, entende
+                    se que a função horária da posição é do tipo \( \large S = S_0 + {v_0}t + \frac {a}{2}t^2 \)
+                </p>
+                <br>
+                <p>
+                    $$ S = 0 + 0 \cdot t + \frac {2}{2} \cdot t^2 $$
+                </p>
+                <p>
+                    $$ S = t^2 $$
+                </p>
+                <br>
+                <p>
+                    d) Função horária da velocidade do automóvel:
+                </p>
+                <p>
+                    Como \( v_0 = 0 \ \text {m/s} \) e \( a = 2 \ \text {m/s}^2 \), 
+                    e o movimento do automóvel é uniformemente variado, conclui-se que
+                    a função horária da velocidade é do tipo \( v = v_0 + at \), logo:
+                </p>
+                <p>$$ v = 0 + 2t $$</p>
+                <p>$$ v = 2t $$</p>
+                <br>
+            </div>
+        </div>
+        
+        <div class="quadro-problema">
+            <div class="topo">
+                <p>
+                    <strong>3</strong>.
+                    Uma partícula tem sua trajetória \({s}\) definida pela função horária \(S = 30 - 10t + 3t^2\), com \({S} \) em metros e \({t}\) em segundos. 
+                    Pode se afirmar que a alternativa correta é:
+                </p>
+                <br>
+                <p>a)A aceleração escalar é igual \( {6} \ \text {m/s}^2 \)</p>
+                <p>b) A aceleração escalar é igual \( {3} \ \text {m/s}^2 \)</p>
+                <p>c) A velocidade inicial é igual \( {10} \ \text {m/s}^2 \)</p>
+                <p>d) A posição inicial é igual a \( {30} \ \text {m/s}^2 \)</p>
+                
+            </div>
+            <div class="resolucao">
+                <p><strong>Resolução:</strong> A função fornecida é:</p>
+                <br>
+                <p>
+                    $$ S = 30 - 10t + 3t^2 $$
+                </p>
+                <p>
+                    Essa função é do tipo da equação horária da posição no movimento uniformemente variado (M.U.V.), cuja
+                    forma geral é:
+                </p>
+                <p>
+                    $$ S = S_0 + v_0t + \frac {a}{2} \cdot t^2$$
+                </p>
+                <br>
+                <p>
+                    Comparando os termos:
+                </p>
+                <p>
+                    \( S_0 = 30 \ \text {m} \Rightarrow \) posição inicial (em metros, não <i>m/s</i>)
+                </p>
+                <p>
+                    \( v_0 = -10 \ \text {m/s} \Rightarrow \) velocidade inicial 
+                </p>
+                <p>
+                    \( \frac {a}{2} = 3 \Rightarrow a = 6 \ \text {m/s}^2 \Rightarrow \) aceleração escalar
+                </p>
+                <br>
+                <p>
+                    Logo, a alternativa correta é a letra (a).
+                </p>
+
+            </div>
+        </div>
+        <div class="math-responsive-3">
+        <div class="quadro-problema">
+            <div class="topo">
+                <p>
+                    <strong>4</strong>.
+                    Um móvel A, inicialmente em repouso, é ultrapassado por um móvel B, que se movimenta com
+                    velocidade escalar constante de 30 m/s. Considerando que no instante da ultrapassagem o móvel A inicia
+                    seu movimento com aceleração escalar de valor igual a 1,5 m/s², determine:
+                </p>
+                <br>
+                <p>
+                    a) O instante em que o móvel A ultrapassa o móvel B.
+                </p>
+                <p>
+                    b) A posição \( S \) em que ocorre a ultrapassagem.
+                </p>
+                <p>
+                    c) A velocidade do móvel A no instante da ultrapassagem
+                </p>
+            </div>
+            <div class="resolucao">
+                <p><strong>Resolução:</strong>
+                    Primeiramente, devemos identificar que o tipo de movimento do móvel A é Uniformemente
+                    Variado, pois apresenta aceleração constante, e que o movimento de B é um Movimento Uniforme, pois
+                    a velocidade de B é constante. Portanto, as funções horárias das posições de A e de B são dadas por:
+                </p><br>
+                <p>
+                    Móvel A:
+                </p>
+                <br>
+                <p>
+                    $$ S_A = 0 + 0 \cdot t + \frac {1,5}{2} t^2 $$
+                </p>
+                <p>
+                    $$ S_A = 0,75t^2 $$
+                </p>
+                <br>
+                <p>
+                    Móvel B:
+                </p>
+                <br>
+                <p>
+                    $$ S_B = 0 + 30t $$
+                </p>
+                <p>
+                    $$ S_B = 30t $$
+                </p>
+                <br>
+
+                <p>
+                    O ponto de encontro (ultrapassagem) ocorre quando \( S_A = S_B\), sendo assim:
+                </p>
+                <p>
+                    a) Se \( S_A = S_B\),
+                </p>
+                <p>$$ 0,75t^2 = 30t $$</p>
+                <p>$$ 0,75t^2 - 30t = 0 $$</p>
+                <br>
+                <p>
+                    Colocando \( t\) em evidência,
+                </p>
+                <p>$$ t \cdot (0,75t - 30) = 0 $$</p>
+                <p>
+                    Desta equação temos:
+                </p>
+                <br>
+                <p>$$ t = 0 \ s $$</p>
+                <br>
+                <p>ou</p>
+                <p>$$ 0,75t - 30 = 0 \Rightarrow 0,75t = 30 \Rightarrow t = \frac {30}{0,75} = 40 \ s $$</p>
+                <p>
+                    Ou seja, os móveis se encontram na mesma posição no instante \( t = 0 \ s\) e
+                    \( t = 40 \ s\). Como no instante \( t = 0 \ s\) representa a situação inicial do problema, a ultrapassagem ocorre em 40 s.
+                </p>
+                <p>
+                    A posição da ultrapassagem pode ser obtida substituindo \( t = 40 \ s\) em qualquer uma das funções horárias,
+                </p>
+                <br>
+                <p>
+                    $$ S_A = 0,75t^2 $$
+                </p>
+                <p>
+                    $$ S_A = 0,75 \cdot (40)^2 = 0,75 \cdot 1600 = 1200 \ m $$
+                </p>
+                <br>
+                <p>
+                    Logo, os dois móveis voltam a se encontrar a 1200 metros do marco zero.
+                </p>
+                <p>
+                    A velocidade escalar no móvel A é dada pela função \( v = 1,5 \cdot t\),
+                    assumindo \( t = 40 \ s\) temos:
+                </p>
+                <br>
+                <p>
+                    $$ v = 1,5 \cdot (40) = 60 \ \text {m/s} $$
+                </p>
+                <br>
+            </div>
+        </div>
+        </div>
+        
+    </section>
+    <!-- Seção Conclusão -->
+    <section id="conclusao" class="conclusao">
+        <!-- Conteúdo -->
+        <div class="conteudo-conclusao">
+            <div class="caixa-texto">
+                <h1 class="titulo-conclusao">CONCLUSÃO</h1>
+                <p>
+                    Agora que você percorreu os principais conceitos sobre o Movimento Uniformemente Variado, é hora de
+                    reforçar o que ficou claro: quando a aceleração é constante, conseguimos prever e calcular a variação da
+                    velocidade e da posição de um corpo ao longo do tempo, utilizando fórmulas bem definidas e fáceis de aplicar.
+                    Isso nos permite interpretar situações reais com base em dados precisos e antecipar o comportamento de
+                    objetos em movimento.
+                </p>
+                <p>
+                    Mais do que memorizar equações, o essencial é compreender como cada grandeza física se relaciona
+                    com o tempo e como identificar, na prática, se um movimento é acelerado ou retardado. Ao reconhecer
+                    esses padrões, você desenvolve uma visão mais ampla sobre o funcionamento do mundo físico e se
+                    prepara para enfrentar com confiança os desafios da cinemática.
+                </p>
+            </div>
+        </div>
+        <div id="download" class="download-section">
+            <a href="https://drive.google.com/uc?export=download&id=1BU1Y1-0KCsf7tggYHGeEKgpbOGpwN9jA" class="download-btn">
+                Baixar PDF <i class="fas fa-download"></i> <!-- Ícone de download -->
+            </a>
+        </div>
+    </section>
+    <!-- Seção Referências-->
+    <section id="referencias" class="referencias">
+        <!-- Conteúdo -->
+        <div class="conteudo-referencias">
+            <div class="caixa-texto">
+                <h1 class="titulo-referencias">REFERÊNCIAS</h1>
+    
+                <p>ALONSO, M.; FINN, E. J. <strong>Física: um Curso Universitário.</strong> 2. ed.
+                    São Paulo: Editora Blucher, 2015. E-book. p.74. ISBN 9788521208327.
+                    Disponível na Minha Biblioteca. Acesso em: 29 ago. 2025.
+                </p>
+    
+                <p>HALLIDAY, D.; RESNICK, R.; KRANE, K. S. <strong>Física.</strong> v.1. 5. ed.
+                    Rio de Janeiro: LTC, 2003. E-book. p.15. ISBN 978-85-216-1945-1.
+                    Disponível na Minha Biblioteca. Acesso em: 29 ago. 2025.
+                </p>
+    
+                <p>HELERBROCK, R. <strong>Movimento uniformemente variado.</strong>
+                    Brasil Escola. [S. l.]: UOL Educação, [s. d.]. Disponível em:
+                    <a href="https://brasilescola.uol.com.br/fisica/movimento-uniformemente-variado.htm" target="_blank">
+                        https://brasilescola.uol.com.br/fisica/movimento-uniformemente-variado.htm
+                    </a>.
+                    Acesso em: 29 ago. 2025.
+                </p>
+    
+                <p>JÚNIOR, J. S. S. <strong>Movimento uniformemente variado.</strong>
+                    Mundo Educação. [S. l.]: UOL Educação, [s. d.]. Disponível em:
+                    <a href="https://mundoeducacao.uol.com.br/fisica/movimento-uniformemente-variado-ou-muv.htm"
+                        target="_blank">
+                        https://mundoeducacao.uol.com.br/fisica/movimento-uniformemente-variado-ou-muv.htm
+                    </a>.
+                    Acesso em: 29 ago. 2025.
+                </p>
+    
+                <p>MARQUES, F. C. <strong>Física Mecânica.</strong> Barueri: Manole, 2016.
+                    E-book. p.51. ISBN 9788520454398. Disponível na Minha Biblioteca.
+                    Acesso em: 29 ago. 2025.
+                </p>
+    
+                <p>SÓ FÍSICA. <strong>Movimento uniformemente variado.</strong> [S. l.], [s. d.].
+                    Disponível em:
+                    <a href="https://www.sofisica.com.br/conteudos/Mecanica/Cinematica/muv.php" target="_blank">
+                        https://www.sofisica.com.br/conteudos/Mecanica/Cinematica/muv.php
+                    </a>.
+                    Acesso em: 29 ago. 2025.
+                </p>
+    
+                <p>TODA MATÉRIA. <strong>Movimento uniformemente variado.</strong> [S. l.], [s. d.].
+                    Disponível em:
+                    <a href="https://www.todamateria.com.br/movimento-uniformemente-variado/" target="_blank">
+                        https://www.todamateria.com.br/movimento-uniformemente-variado/
+                    </a>.
+                    Acesso em: 29 ago. 2025.
+                </p>
+    
+            </div>
+        </div>
+    </section>
+    <!-- Seção com os créditos e ficha técnica -->
+    <section class="ficha-tecnica">
+        <p>CASA NOSSA SENHORA DA PAZ – AÇÃO SOCIAL FRANCISCANA, PROVÍNCIA FRANCISCANA DA <br>
+            IMACULADA CONCEIÇÃO DO BRASIL – ORDEM DOS FRADES MENORES</p>
+        <br>
+        <p><strong>GESTOR DO CENTRO DE INOVAÇÃO E SOLUÇÕES EDUCACIONAIS - CISE</strong>
+            Franklin Portela Correia</p>
+    
+        <p><strong>COORDENADORA DO PROGRAMA DE ATUALIZAÇÃO</strong>
+            Flávia Cristina Franco de Lima Rosa</p>
+    
+        <p><strong>SUPERVISORA EDUCACIONAL</strong>
+            Juliane Cristine Batista</p>
+    
+        <p><strong>DESIGNER INSTRUCIONAL</strong>
+            Ana Angelica Miranda Ramos</p>
+    
+        <p><strong>PROJETO GRÁFICO</strong>
+            Andréa Calegari<br>
+            Lucas Ichimaru Testa</p>
+    
+        <p><strong>DIAGRAMADORES</strong>
+            Andréa Calegari<br>
+            Lucas Ichimaru Testa</p>
+    
+        <p><strong>DESENVOLVEDOR</strong>
+            Pedro Vinicius Pires de Oliveira Dias</p>
+    
+        <p><strong>PRODUTOR AUDIOVISUAL</strong>
+            Cassio Martins de Carvalho</p>
+    
+        <p><strong>EDIÇÃO DE VÍDEOS</strong>
+            Diogo Lefort Silva<br>
+            Rafael da Silva Oliveira<br>
+            Hugo Henrique Ferreira da Silva</p>
+    
+        <br><br>
+        <p><span class="paragraforeduzido">
+                © 2026 Universidade São Francisco<br>
+                Avenida São Francisco de Assis, 218<br>
+                CEP 12916-900 – Bragança Paulista/SP
+        </p></span>
+    </section>
+    <footer class="footer">
+        <p>Copyright © de Universidade São Francisco</p>
+        <hr class="footer-divider">
+        <span class="fonte-menor">Todos os direitos reservados. Este ebook ou
+            qualquer parte dele não pode ser reproduzido ou usado em quaisquer formas (eletrônico,
+            gravação, fotocópia, distribuição pela Internet ou outros) sem autorização
+            expressa, por escrito, da <strong>Universidade São Francisco.</strong></span>
+    </footer>
+    <script>
+
+        // Navbar
+            document.querySelector('.menu-toggle').addEventListener('click', () => {
+                const menu = document.querySelector('.navbar ul');
+                const icons = document.querySelectorAll('.menu-toggle i'); // Seleciona ambos os ícones
+
+                menu.classList.toggle('show'); // Alterna a visibilidade do menu
+
+                // Alterna entre o ícone de abrir (menu) e o ícone de fechar (x)
+                icons[0].style.display = icons[0].style.display === 'none' ? 'block' : 'none'; // Mostra ou esconde o ícone de menu
+                icons[1].style.display = icons[1].style.display === 'none' ? 'block' : 'none'; // Mostra ou esconde o ícone de fechar
+            });
+            // Fechar o menu ao clicar em um link
+            const links = document.querySelectorAll('.navbar ul li a');
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    const menu = document.querySelector('.navbar ul');
+                    const icons = document.querySelectorAll('.menu-toggle i');
+
+                    // Fecha o menu ao clicar no link
+                    menu.classList.remove('show');
+                    icons[0].style.display = 'block'; // Exibe o ícone de menu
+                    icons[1].style.display = 'none'; // Esconde o ícone de fechar
+                });
+            });
+            // Captura o elemento navbar
+            const navbar = document.querySelector('.navbar');
+
+            // Função que altera a opacidade da navbar
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) { // Quando o scroll for maior que 50px
+                    navbar.style.backgroundColor = 'rgba(159, 67, 190, 0.8)'; // Opacidade 80%
+                } else {
+                    navbar.style.backgroundColor = '#9F43BE'; // Cor original sem transparência
+                }
+            });
+
+
+        // Seleciona apenas os tabs dentro da div "tema-verde"
+            const temaVerdeContainers = document.querySelectorAll(".tabs-container");
+
+            temaVerdeContainers.forEach(container => {
+                const buttons = container.querySelectorAll(".tab-button");
+                const contents = container.querySelectorAll(".tab-content");
+
+                buttons.forEach(button => {
+                    button.addEventListener("click", () => {
+                        // Remove estado ativo anterior apenas dentro deste container
+                        buttons.forEach(btn => btn.classList.remove("active"));
+                        contents.forEach(content => content.classList.remove("active"));
+
+                        // Adiciona novo estado ativo
+                        button.classList.add("active");
+                        const target = container.querySelector(`#${button.dataset.tab}`);
+                        if (target) target.classList.add("active");
+                    });
+                });
+            });
+
+            document.querySelectorAll('.acordeon-header, .acordeon-headerb, .acordeon-headerc, .acordeon-headerd').forEach(header => {
+                    header.addEventListener('click', () => {
+                        const content = header.nextElementSibling;
+                        const isVisible = content.style.display === 'block';
+                        content.style.display = isVisible ? 'none' : 'block';
+                        const icon = header.querySelector('.acordeon-icon');
+                        if (icon) {
+                            icon.classList.toggle('bx-chevron-up', !isVisible);
+                            icon.classList.toggle('bx-chevron-down', isVisible);
+                        }
+                    });
+                });
+
+                // Função para abrir o modal com o vídeo
+                    function openVideoModal(element) {
+                        var videoModal = document.getElementById('videoModal');
+                        var iframe = document.getElementById('videoIframe');
+
+                        // Obtém o link do vídeo do atributo 'data-video' do ícone de play clicado
+                        var videoLink = element.getAttribute("data-video");
+
+                        // Define o src do iframe com o link do vídeo
+                        iframe.src = videoLink;
+
+                        // Exibe o modal
+                        videoModal.style.display = "flex";
+                    }
+
+                    // Função para fechar o modal
+                    function closeVideoModal() {
+                        var videoModal = document.getElementById('videoModal');
+                        var iframe = document.getElementById('videoIframe');
+
+                        // Limpa o vídeo (remove a URL para evitar que o vídeo continue tocando)
+                        iframe.src = "";
+                        videoModal.style.display = "none";  // Fecha o modal
+                    }
+
+                    // Impede o fechamento do modal quando o clique for dentro do modal de vídeo
+                    document.getElementById('videoModal').addEventListener('click', function (event) {
+                        // Apenas fecha o modal se o clique for fora da área de conteúdo (ou seja, na área preta)
+                        if (event.target === this) {
+                            closeVideoModal();
+                        }
+                    });
+
+                    // Cria o container lightbox
+                    const lightbox = document.createElement("div");
+                    lightbox.classList.add("lightbox");
+                    document.body.appendChild(lightbox);
+
+                    let scale = 1; // nível de zoom
+                    let isDragging = false;
+                    let startX, startY, translateX = 0, translateY = 0;
+
+                    document.querySelectorAll(".zoomable").forEach(img => {
+                        img.addEventListener("click", () => {
+                            const imgClone = document.createElement("img");
+                            imgClone.src = img.src;
+                            imgClone.alt = img.alt;
+                            imgClone.style.objectFit = "contain"; // garante que abre ajustada
+                            imgClone.style.maxWidth = "100%";
+                            imgClone.style.maxHeight = "100%";
+
+                            lightbox.innerHTML = "";
+                            lightbox.appendChild(imgClone);
+                            lightbox.style.display = "flex";
+                            scale = 1;
+                            translateX = translateY = 0;
+                            updateTransform(imgClone);
+
+                            // Mensagem de dica
+                            const hint = document.createElement("div");
+                            hint.classList.add("lightbox-hint");
+                            hint.innerText = "Use a roda do mouse para dar zoom e arraste para mover";
+                            lightbox.appendChild(hint);
+
+                            // Remove a dica após 4s
+                            setTimeout(() => {
+                                if (hint && hint.parentNode) {
+                                    hint.remove();
+                                }
+                            }, 4000);
+
+                            // Zoom com scroll
+                            imgClone.addEventListener("wheel", e => {
+                                e.preventDefault();
+                                scale += e.deltaY * -0.001;
+                                scale = Math.min(Math.max(1, scale), 5); // limite de zoom
+                                updateTransform(imgClone);
+                            });
+
+                            // Arrastar imagem
+                            imgClone.addEventListener("mousedown", e => {
+                                isDragging = true;
+                                startX = e.clientX - translateX;
+                                startY = e.clientY - translateY;
+                                lightbox.style.cursor = "grabbing";
+                            });
+
+                            window.addEventListener("mousemove", e => {
+                                if (!isDragging) return;
+                                translateX = e.clientX - startX;
+                                translateY = e.clientY - startY;
+                                updateTransform(imgClone);
+                            });
+
+                            window.addEventListener("mouseup", () => {
+                                isDragging = false;
+                                lightbox.style.cursor = "grab";
+                            });
+                        });
+                    });
+
+                    // Fecha clicando fora da imagem
+                    lightbox.addEventListener("click", e => {
+                        if (e.target === lightbox) {
+                            lightbox.style.display = "none";
+                        }
+                    });
+
+                    // Função para aplicar zoom + movimento
+                    function updateTransform(img) {
+                        img.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+                    }
+    </script>
+</body>
+</html>
