@@ -1053,45 +1053,10 @@
             border-radius: 20px;
             font-family: monospace;
         }
-        /* Estilos para cálculos matemáticos extensos */
-        .math-equation-container {
-            width: 100%;
-            overflow-x: auto;
-            padding: 10px 0;
-            margin: 10px 0;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .math-equation-container mjx-container {
-            min-width: fit-content;
-        }
-
-        /* Scroll personalizado para equações */
-        .math-equation-container::-webkit-scrollbar {
-            height: 6px;
-        }
-
-        .math-equation-container::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 3px;
-        }
-
-        .math-equation-container::-webkit-scrollbar-thumb {
-            background: #9F43BE;
-            border-radius: 3px;
-        }
-
-        .math-equation-container::-webkit-scrollbar-thumb:hover {
-            background: #8a32a9;
-        }
+        
 
         /* Ajustes responsivos */
         @media (max-width: 768px) {
-            .math-equation-container {
-                padding: 8px 0;
-                margin: 8px 0;
-            }
-            
             .resolucao p {
                 font-size: 0.95rem;
                 line-height: 1.4;
@@ -1099,11 +1064,6 @@
         }
 
         @media (max-width: 480px) {
-            .math-equation-container {
-                padding: 6px 0;
-                margin: 6px 0;
-            }
-            
             .resolucao p {
                 font-size: 0.9rem;
             }
@@ -1918,105 +1878,22 @@
             font-size: 14px;
         }
 
-                /* Wrapper para evitar quebra de layout com MathJax */
-        .math-responsive {
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
+        
+        /* Wrapper universal para expressões longas */
+        .math-wrapper {
             width: 100%;
-        }
-
-        .math-responsive mjx-container {
-            overflow-x: auto !important;
-            max-width: 100% !important;
-        }
-
-        /* Em telas pequenas, permitir rolagem horizontal */
-        @media (max-width: 600px) {
-            .math-responsive {
-                padding-bottom: 6px; /* espaço para indicar scroll */
-            }
-        }
-
-                /* Wrapper exclusivo para esse bloco */
-        .math-responsive-2 {
             overflow-x: auto;
+            overflow-y: hidden;
             -webkit-overflow-scrolling: touch;
-            width: 100%;
+            padding-bottom: 4px; /* espaço para o scroll no mobile */
         }
 
-        /* Garantir que cada container MathJax se comporte responsivamente */
-        .math-responsive-2 mjx-container {
-            max-width: 100% !important;
-            overflow-x: auto !important;
-            display: block;
-        }
-
-        /* Para evitar cortes de formulas inline muito longas */
-        .math-responsive-2 mjx-container mjx-math {
+        /* Impede MathJax de estourar o container */
+        .math-wrapper mjx-container {
+            display: inline-block;
+            max-width: 100%;
             white-space: nowrap;
         }
-
-        /* Apenas no mobile */
-        @media (max-width: 600px) {
-
-            /* espaço para indicar que há scroll horizontal */
-            .math-responsive-2 {
-                padding-bottom: 6px;
-            }
-
-            /* Reduz levemente o tamanho da fonte das equações */
-            .math-responsive-2 mjx-container {
-                font-size: 0.92rem; /* ajuste fino que não distorce */
-            }
-        }
-
-      /* Wrapper exclusivo deste trecho */
-.math-responsive-3 {
-    width: 100%;
-    overflow-x: visible; /* no desktop: não gera scroll */
-}
-
-/* MathJax container — NÃO força quebra */
-.math-responsive-3 mjx-container {
-    max-width: 100% !important;
-    overflow-x: auto; /* permite scroll apenas quando necessário */
-    overflow-y: hidden;
-}
-
-/* Inline não pode causar quebras */
-.math-responsive-3 mjx-container[jax="CHTML"][display="false"] {
-    display: inline-flex !important;
-    align-items: center;
-    vertical-align: middle;
-    white-space: nowrap;
-}
-
-/* Display block (ex: $$ $$) continua normal */
-.math-responsive-3 mjx-container[jax="CHTML"][display="true"] {
-    display: block !important;
-    margin: 12px 0 !important;
-    white-space: nowrap;
-}
-
-/* Evita cortes de fórmulas longas */
-.math-responsive-3 mjx-container mjx-math {
-    white-space: nowrap;
-}
-
-/* Somente no MOBILE */
-@media (max-width: 600px) {
-
-    .math-responsive-3 {
-        overflow-x: auto;       /* scroll apenas no mobile */
-        -webkit-overflow-scrolling: touch;
-        padding-bottom: 6px;    /* indica área rolável */
-    }
-
-    /* redução leve apenas no mobile */
-    .math-responsive-3 mjx-container {
-        font-size: 0.92rem;
-    }
-}
     </style>
 </head>
 <body>
@@ -2146,7 +2023,7 @@
             A <b>velocidade escalar média</b> é definida em um determinado intervalo de tempo:<br>
             <br>
             $$
-            V_m = \frac{\Delta S}{\Delta t} = \frac{S_2 - S_1}{t_2 - t_1}
+            v_m = \frac{\Delta S}{\Delta t} = \frac{S_2 - S_1}{t_2 - t_1}
             $$
             <br>
             <div class="texto-justificado">
@@ -2156,7 +2033,7 @@
             </div>
             <br>
             $$
-            V = \lim_{\Delta t \to 0} \frac{\Delta S}{\Delta t}
+            v = \lim_{\Delta t \to 0} \frac{\Delta S}{\Delta t}
             $$
             <br>
 
@@ -2164,7 +2041,7 @@
                 Onde:
             </div>
             <ul class="lista-compacta">
-                <li> \( V_m \) é a velocidade média; </li>
+                <li> \( v_m \) é a velocidade média; </li>
                 <li> \( \Delta S \) é a variação de posição; </li>
                 <li> \( \Delta t \) é a variação do tempo; </li>
                 <li> \( S_2 \) é a posição final; </li>
@@ -2283,9 +2160,11 @@
                 <p>
                     Portanto, a aceleração escalar média é dada por:
                 </p>
+                <div class="math-wrapper">
                 <p>
-                    \( \Large a_m = \frac{\Delta v}{\Delta t} = \frac{-45}{3}\,\frac{\text{m/s}}{\text{s}} = -15\ \text{m/s}^2\).
+                    \( \large a_m = \frac{\Delta v}{\Delta t} = \frac{-45}{3}\,\frac{\text{m/s}}{\text{s}} = -15\ \text{m/s}^2\).
                 </p>
+                </div>
                 <p>
                     Podemos concluir que o carro de Fórmula 1 reduz sua velocidade em 15 m/s a cada
                     segundo.
@@ -2370,7 +2249,7 @@
             </div>
         </div>
         <br><br>
-        <div class="math-responsive-2">
+        
         <div class="quadro-problema">
             <div class="topo">
                 <p>
@@ -2395,7 +2274,7 @@
                     a) Se o movimento é uniforme ou variado;
                 </p>
                 <p>
-                    b) A velocidade escalar do móvel no instante inicial \( (t = 0 s)\);
+                    b) A velocidade escalar do móvel no instante inicial (t = 0 s) ;
                 </p>
                 <p>
                     c) Se o movimento é acelerado ou retardado nos intervalos de 0 s a 4 s e de 6 s a 8 s;
@@ -2410,9 +2289,9 @@
                 <p>
                     a) O movimento é variado, pois sua velocidade escalar varia no decorrer do tempo;
                 </p>
-                <p>
-                    b) Da tabela, em \( t = 0 s\), temos \( v_0 = 10 \ m/s\). A velocidade escalar no instante inicial é
-                    denominada velocidade inicial \(\large v_0\).
+                <p class="math-inline">
+                    b) Da tabela, em t = 0 s, temos \(v_0 = {10} \ m/s\).
+                    A velocidade escalar no instante inicial é denominada velocidade inicial \(v_0\).
                 </p>
                 <p>
                     c) No intervalo de 0 s a 4 s o módulo da velocidade diminui com o decorrer do tempo,
@@ -2422,26 +2301,31 @@
                 <p>
                     d) No intervalo de 0 s a 2 s:
                 </p><br>
+                <div class="math-wrapper">
                 <p>
                     \(\large v_0 = 10\ \text{m/s};\quad v_2 = 6\ \text{m/s};\ \Rightarrow\ \Delta v = v_2 - v_0 = 6 - 10 = -4\ \text{m/s} \)
                 </p>
                 <p>
                     $$ \large \Delta v = -4\ \text{m/s};\quad \Delta t = 2\ \text{s};\ \Rightarrow\ a_m = \frac{\Delta v}{\Delta t} = \frac{-4}{2} =
                     -2\ \text{m/s}^2 $$
-                </p><br>
+                </p>
+                </div><br>
                 <p>
                     No intervalo de 3 s a 5 s:
                 </p><br>
+                <div class="math-wrapper">
                 <p>
                     \( \large v_3 = 4\ \text{m/s};\quad v_5 = 0\ \text{m/s};\ \Rightarrow\ \Delta v = v_5 - v_3 = 0 - 4 = -4\ \text{m/s} \)
                 </p>
                 <p>
                     $$ \large \Delta v = -4\ \text{m/s};\quad \Delta t = 2\ \text{s};\ \Rightarrow\ a_m = \frac{\Delta v}{\Delta t} = \frac{-4}{2} =
                     -2\ \text{m/s}^2 $$
-                </p><br>
+                </p>
+                </div><br>
                 <p>
                     No intervalo de 4 s a 7 s:
                 </p><br>
+                <div class="math-wrapper">
                 <p>
                     \( \large v_4 = 2\ \text{m/s};\quad v_7 = -4\ \text{m/s};\ \Rightarrow\ \Delta v = v_7 - v_4 = (-4) - 2 = -6\ \text{m/s} \)
                 </p>
@@ -2449,6 +2333,7 @@
                     $$ \large \Delta v = -6\ \text{m/s};\quad \Delta t = 3\ \text{s};\ \Rightarrow\ a_m = \frac{\Delta v}{\Delta t} = \frac{-6}{3} =
                     -2\ \text{m/s}^2 $$
                 </p>
+                </div>
                 <br>
                 <p>
                     <b>Respostas:</b>
@@ -2460,7 +2345,7 @@
                 <p>d) -2 m/s²; -2 m/s²; -2 m/s².</p>
             </div>
         </div>
-        </div>
+        
     </section>
     <section class="secao2" id="secao4">
         <div class="faixa-verde">
@@ -2508,15 +2393,16 @@
             é a velocidade no instante \(t = 0 \), podemos assumir que (Júnior, s.d.):
         </p>
         <br>
-        <div class="math-responsive">
+
             <div class="bloco-regra">
-        
+                <div class="math-wrapper">
                 $$
                 \large a = \frac{\Delta v}{\Delta t} \;\rightarrow\; a = \frac{v - v_0}{t - t_0} \;\rightarrow\; a = \frac{v -
                 v_0}{t - 0}
                 \;\rightarrow\; a = \frac{v - v_0}{t}
-                $$
+                $$</div>
                 <br>
+                
                 Isolando a velocidade ;
                 <br>
                 $$
@@ -2535,7 +2421,6 @@
                 inicial \(\large t = 0\), \(\large a\) é a aceleração escalar e \(\large t\) é o tempo.
                 <br>
             </div>
-        </div>
         <br>
         <div class="faixa-verde">
             <h1 class="titulo-secao" style="font-size: 22px !important;">
@@ -2570,7 +2455,6 @@
         </p>
 
         <br>
-        <div class="math-responsive-3">
         <div class="quadro-problema">
             <div class="topo">
                 <p>
@@ -2603,9 +2487,11 @@
                     b) Comparando \( S = S_0 + v_0 \cdot t + \frac{a}{2} \cdot t^2 \) com 
                     \( S = 20 - 3t + 5t^2 \) identificamos que:
                 </p>
+                <div class="math-wrapper">
                 <p>
                     $$ S_0 = 20\ \text{m}; \quad v_0 = -3\ \text{m/s}; \quad e \quad \frac{a}{2} = 5 \;\Rightarrow\; a = 10\ \text{m/s}^2 $$
                 </p>
+                </div>
                 <p>
                     c) A função horária da velocidade é do tipo \( {v_0} + {at} \), na qual 
                     \( {v_0} = {-3} \text{m/s}\) e \( {a} = {10} \text{m/s}^2\), logo:
@@ -2615,7 +2501,6 @@
                 </p>
                 <br>
             </div>
-        </div>
         </div>
         <br>
         <p>
@@ -2984,7 +2869,7 @@
 
             </div>
         </div>
-        <div class="math-responsive-3">
+        
         <div class="quadro-problema">
             <div class="topo">
                 <p>
@@ -3053,7 +2938,9 @@
                 <p>$$ t = 0 \ s $$</p>
                 <br>
                 <p>ou</p>
+                <div class="math-wrapper">
                 <p>$$ 0,75t - 30 = 0 \Rightarrow 0,75t = 30 \Rightarrow t = \frac {30}{0,75} = 40 \ s $$</p>
+                </div>
                 <p>
                     Ou seja, os móveis se encontram na mesma posição no instante \( t = 0 \ s\) e
                     \( t = 40 \ s\). Como no instante \( t = 0 \ s\) representa a situação inicial do problema, a ultrapassagem ocorre em 40 s.
@@ -3083,7 +2970,7 @@
                 <br>
             </div>
         </div>
-        </div>
+        
         
     </section>
     <!-- Seção Conclusão -->
